@@ -1,0 +1,15 @@
+*.out
+*.aux
+*.log
+doc.pdf
+*.gz
+sveamodel.*
+SveaModel.*
+.RData
+.Rhistory
+*.svg
+*.png
+*.tar.gz
+.*.swp
+*.csv
+*.bin

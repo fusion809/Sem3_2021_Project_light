@@ -1,0 +1,148 @@
+PDS_VERSION_ID                     = PDS3                                     
+                                                                              
+RECORD_TYPE                        = "FIXED_LENGTH"                           
+RECORD_BYTES                       = 72                                       
+FILE_RECORDS                       = 48                                       
+                                                                              
+^TABLE                             = "416_svea.tab"                           
+                                                                              
+DATA_SET_ID                        = "EAR-A-VARGBDET-5-NESVORNYFAM-V3.0"      
+PRODUCT_NAME                       = "416_SVEA"                               
+PRODUCT_ID                         = "FAMILIES_416_SVEA_TAB"                  
+INSTRUMENT_HOST_ID                 = "VARGBTEL"                               
+INSTRUMENT_HOST_NAME               = "VARIOUS GROUND-BASED TELESCOPES"        
+INSTRUMENT_ID                      = "VARGBDET"                               
+INSTRUMENT_NAME                    = "VARIOUS GROUND-BASED DETECTORS"         
+TARGET_NAME                        = "ASTEROID"                               
+TARGET_TYPE                        = "ASTEROID"                               
+START_TIME                         = "N/A"                                    
+STOP_TIME                          = "N/A"                                    
+PRODUCT_CREATION_TIME              = 2015-03-30  /* File uploaded to OLAF */  
+                                                                              
+OBJECT                             = TABLE                                    
+ ROWS                              = 48                                       
+ ROW_BYTES                         = 72                                       
+ INTERCHANGE_FORMAT                = "ASCII"                                  
+ COLUMNS                           = 8                                        
+ DESCRIPTION                       = "Individual family membership for the    
+        asteroid family indicated by family identification number in column 7,
+        with proper elements."                                                
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 1                                        
+  NAME                             = "AST_NUMBER"                             
+  DESCRIPTION                      = "Asteroid number"                        
+  DATA_TYPE                        = "ASCII_INTEGER"                          
+  START_BYTE                       = 1                                        
+  BYTES                            = 6                                        
+  FORMAT                           = "I6"                                     
+  MISSING_CONSTANT                 = 0                                        
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 2                                        
+  NAME                             = "A_PROP"                                 
+  DESCRIPTION                      = "Proper semi-major axis"                 
+  UNIT                             = "ASTRONOMICAL_UNIT"                      
+  DATA_TYPE                        = "ASCII_REAL"                             
+  START_BYTE                       = 8                                        
+  BYTES                            = 7                                        
+  FORMAT                           = "F7.5"                                   
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 3                                        
+  NAME                             = "E_PROP"                                 
+  DESCRIPTION                      = "Proper eccentricity"                    
+  DATA_TYPE                        = "ASCII_REAL"                             
+  START_BYTE                       = 16                                       
+  BYTES                            = 8                                        
+  FORMAT                           = "F8.6"                                   
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 4                                        
+  NAME                             = "SIN_I_PROP"                             
+  DESCRIPTION                      = "Sine of proper inclination"             
+  DATA_TYPE                        = "ASCII_REAL"                             
+  START_BYTE                       = 25                                       
+  BYTES                            = 8                                        
+  FORMAT                           = "F8.6"                                   
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 5                                        
+  NAME                             = "ABS_MAG"                                
+  DESCRIPTION                      = "Absolute magnitude from the input files 
+        used to generate these families, taken from the MPC by Milani and     
+        Knezevic."                                                            
+  UNIT                             = "MAGNITUDE"                              
+  DATA_TYPE                        = "ASCII_REAL"                             
+  START_BYTE                       = 34                                       
+  BYTES                            = 5                                        
+  FORMAT                           = "F5.2"                                   
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 6                                        
+  NAME                             = "C_PARAM"                                
+  DESCRIPTION                      = "The C parameter in column 6 helps to    
+        identify potential interlopers in a family. This parameter is defined 
+        as C_j, where                                                         
+                                                                              
+        C_j = 10^(-H_j/5) (a_j - a_center)/C_0,                               
+        H is the absolute magnitude,                                          
+        a is the proper semimajor axis of a member,                           
+        a_center is the family center,                                        
+        C_0 is the best fit to the V-shape envelope of the family,            
+        and index j runs over individual bodies. Bodies with |C_j|>1 are      
+        suspected to be dynamical interlopers. See Nesvorny et al. (2015) for 
+        further discussion of the C parameter."                               
+  DATA_TYPE                        = "ASCII_REAL"                             
+  START_BYTE                       = 40                                       
+  BYTES                            = 8                                        
+  FORMAT                           = "F8.4"                                   
+  MISSING_CONSTANT                 = -99.9999                                 
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 7                                        
+  NAME                             = "FAMILY_NUMBER"                          
+  DESCRIPTION                      = "Family number assigned for the purpose  
+        of this family analysis.  All families are derived from synthetic     
+        proper elements.  Family numbers                                      
+                                                                              
+        - less than 100 include Hungarias, Hildas, and Jupiter                
+             Trojans,                                                         
+        - in the 400s include inner main belt families with                   
+             2.0 > a > 2.5 AU and i < 17.5,                                   
+        - in the 500's include central belt families with                     
+             2.5 < a < 2.82 AU and i < 17.5,                                  
+        - in the 600s include outer main belt families with                   
+             2.82 < a < 3.7 AU and i < 17,                                    
+        - in the 700s include inner main belt families with                   
+             2.0 < a < 2.5 AU and i > 17,                                     
+        - in the 800s include central main belt families with                 
+             2.5 < a < 2.82 AU and i > 17.5,                                  
+        - in the 900s include outer main belt families with                   
+             2.82 < a < 3.5 AU and i > 17.5."                                 
+  DATA_TYPE                        = "ASCII_INTEGER"                          
+  START_BYTE                       = 49                                       
+  BYTES                            = 3                                        
+  FORMAT                           = "I3"                                     
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+ OBJECT                            = COLUMN                                   
+  COLUMN_NUMBER                    = 8                                        
+  NAME                             = "FAMILY_NAME"                            
+  DESCRIPTION                      = "The name of the asteroid family, based  
+        on the name or provisional designation of the largest member of the   
+        family."                                                              
+  DATA_TYPE                        = "CHARACTER"                              
+  START_BYTE                       = 53                                       
+  BYTES                            = 18                                       
+  FORMAT                           = "A18"                                    
+ END_OBJECT                        = COLUMN                                   
+                                                                              
+END_OBJECT                         = TABLE                                    
+END                                                                           

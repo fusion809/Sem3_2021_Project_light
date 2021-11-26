@@ -1,0 +1,32 @@
+#!/bin/bash -l
+
+###########
+###
+### Description: this is a simply PBS command file
+###              used to test if an account can access
+###              HPC resources.
+### Usage: copy file to new user account and submit
+###             "qsub execute.pbs"
+###########
+
+### set name of job
+#PBS -N SveaModel
+### request job resources
+#PBS -l ncpus=1
+#PBS -l walltime=48:00:00
+#PBS -l mem=8gb
+### set job queue
+#PBS -q default
+#PBS -c s
+### set job project/FOR code
+#PBS -J 1-48
+#PBS -j oe
+#PBS -m ea
+#PBS -M u1126705@umail.usq.edu.au
+#PBS -P 0201-BHORNE
+### change to job submission directory
+cd $PBS_O_WORKDIR
+
+### run program
+module load python/3.8.8-gcc8.3.1-2un
+python $HOME/Sem3_2021_Project/Coding/computeTrajectory.py ${PBS_ARRAY_INDEX}
