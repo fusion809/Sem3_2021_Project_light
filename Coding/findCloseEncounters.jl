@@ -59,10 +59,15 @@ for i=1:48
                 # l refers to the clone
                 asteroidIndexMin = (l + 7) * Noutputs
                 asteroidIndex = asteroidIndexMin + j
-                dist = sqrt((x[asteroidIndex] - x[planetIndex])^2 + (y[asteroidIndex] - y[planetIndex])^2 + (z[asteroidIndex] - z[planetIndex])^2)
-                hillRad = a[planetIndex] * (1-e[planetIndex]) * cbrt(m[k+1]/(3*M))
+                xDistSq = (x[asteroidIndex] - x[planetIndex])^2
+                yDistSq = (y[asteroidIndex] - y[planetIndex])^2
+                zDistSq = (z[asteroidIndex] - z[planetIndex])^2
+                dist = sqrt(xDistSq + yDistSq + zDistSq)
+                hillRad = a[planetIndex] * (1-e[planetIndex]) * 
+                cbrt(m[k+1]/(3*M))
                 if (dist < hillRad)
-                    println("Asteroid " * string(i) * " clone " * string(l) * " is within the Hill radius of " * planName[k+1])
+                    println("Asteroid " * string(i) * " clone " * string(l) * 
+                    " is within the Hill radius of " * planName[k+1])
                 end
             end
         end
