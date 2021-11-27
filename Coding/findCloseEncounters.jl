@@ -4,13 +4,15 @@ using DataFrames;
 
 Noutputs = 10000
 M = 1.9885e30
+
+# Planet masses and names
 m = [4.8675e24;
 5.9724e24;
 6.4171e23;
 1.898187e27;
 5.68317e26;
 8.6813e25;
-1.02413e26]
+1.02413e26];
 planName = [string("Venus");
 string("Earth");
 string("Mars");
@@ -35,9 +37,13 @@ string("Neptune")];
 # 140001 - 150000 Asteroid clone 7
 # 150001 - 160000 Asteroid clone 8
 for i=1:48
-    df = DataFrame(CSV.File("output/coords_and_vel_" * string(i) * ".csv"))
-    dfParam = DataFrame(CSV.File("output/parameters_" * string(i) * ".csv"))
-    println("i = ", i)
+    # Open CSV files
+    coordsFile = "output/ordinary/coords_and_vel_" * string(i) * ".csv"
+    df = DataFrame(CSV.File(coordsFile))
+    paramFile = "output/ordinary/parameters_" * string(i) * ".csv"
+    dfParam = DataFrame(CSV.File(paramFile))
+
+    # Extract coords and params
     x = df.x
     y = df.y
     z = df.z
@@ -48,11 +54,13 @@ for i=1:48
         for k=0:6
             # k refers to the planet
             planetIndexMin = k*Noutputs
+            planetIndex = planetIndexMin + j
             for l=0:8
                 # l refers to the clone
                 asteroidIndexMin = (l + 7) * Noutputs
-                dist = sqrt((x[asteroidIndexMin + j] - x[planetIndexMin + j])^2 + (y[asteroidIndexMin + j] - y[planetIndexMin + j])^2 + (z[asteroidIndexMin + j] - z[planetIndexMin + j])^2)
-                hillRad = a[planetIndexMin + j] * (1-e[planetIndexMin + j]) * cbrt(m[k+1]/(3*M))
+                asteroidIndex = asteroidIndexMin + j
+                dist = sqrt((x[asteroidIndex] - x[planetIndex])^2 + (y[asteroidIndex] - y[planetIndex])^2 + (z[asteroidIndex] - z[planetIndex])^2)
+                hillRad = a[planetIndex] * (1-e[planetIndex]) * cbrt(m[k+1]/(3*M))
                 if (dist < hillRad)
                     println("Asteroid " * string(i) * " clone " * string(l) * " is within the Hill radius of " * planName[k+1])
                 end
