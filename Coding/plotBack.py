@@ -22,16 +22,15 @@ for i in range(0, 48):
     f = dfParam['f']
     nodalLong = Omega
     plt.plot(t[0:Noutputs], nodalLong[70000:80000])
-    plt.plot(t[0:Noutputs], nodalLong[80000:90000])
-    plt.plot(t[0:Noutputs], nodalLong[90000:100000])
-    plt.plot(t[0:Noutputs], nodalLong[100000:110000])
-    plt.plot(t[0:Noutputs], nodalLong[110000:120000])
-    plt.plot(t[0:Noutputs], nodalLong[120000:130000])
-    plt.plot(t[0:Noutputs], nodalLong[130000:140000])
-    plt.plot(t[0:Noutputs], nodalLong[140000:150000])
-    plt.plot(t[0:Noutputs], nodalLong[150000:160000])
-
-plt.show()
+    # plt.plot(t[0:Noutputs], nodalLong[80000:90000])
+    # plt.plot(t[0:Noutputs], nodalLong[90000:100000])
+    # plt.plot(t[0:Noutputs], nodalLong[100000:110000])
+    # plt.plot(t[0:Noutputs], nodalLong[110000:120000])
+    # plt.plot(t[0:Noutputs], nodalLong[120000:130000])
+    # plt.plot(t[0:Noutputs], nodalLong[130000:140000])
+    # plt.plot(t[0:Noutputs], nodalLong[140000:150000])
+    # plt.plot(t[0:Noutputs], nodalLong[150000:160000])
+plt.savefig("plots/Nodal_longitude_plot.svg")
 plt.figure(2)
 for i in range(0, 48):
     df = pd.read_csv("output/coords_and_velBack_" + str(i) + ".csv")
@@ -40,14 +39,14 @@ for i in range(0, 48):
     Omega = dfParam['Omega']
     omega = dfParam['omega']
     f = dfParam['f']
-    periLong = Omega
+    periLong = omega
     plt.plot(t[0:Noutputs], periLong[70000:80000])
-    plt.plot(t[0:Noutputs], periLong[80000:90000])
-    plt.plot(t[0:Noutputs], periLong[90000:100000])
-    plt.plot(t[0:Noutputs], periLong[100000:110000])
-    plt.plot(t[0:Noutputs], periLong[110000:120000])
-    plt.plot(t[0:Noutputs], periLong[120000:130000])
-    plt.plot(t[0:Noutputs], periLong[130000:140000])
-    plt.plot(t[0:Noutputs], periLong[140000:150000])
-    plt.plot(t[0:Noutputs], periLong[150000:160000])
-plt.show()
+    # plt.plot(t[0:Noutputs], periLong[80000:90000])
+    # plt.plot(t[0:Noutputs], periLong[90000:100000])
+    # plt.plot(t[0:Noutputs], periLong[100000:110000])
+    # plt.plot(t[0:Noutputs], periLong[110000:120000])
+    # plt.plot(t[0:Noutputs], periLong[120000:130000])
+    # plt.plot(t[0:Noutputs], periLong[130000:140000])
+    # plt.plot(t[0:Noutputs], periLong[140000:150000])
+    # plt.plot(t[0:Noutputs], periLong[150000:160000])
+plt.savefig("plots/Perihelion_longitude_plot.svg")
