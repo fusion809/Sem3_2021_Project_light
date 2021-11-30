@@ -65,7 +65,7 @@ for i=1:48
                 dist = sqrt(xDistSq + yDistSq + zDistSq)
                 hillRad = a[planetIndex] * (1-e[planetIndex]) * 
                 cbrt(m[k+1]/(3*M))
-                if (dist < hillRad)
+                if (dist < 5*hillRad)
                     println("Asteroid " * string(i) * " clone " * string(l) * 
                     " is within the Hill radius of " * planName[k+1])
                 end
