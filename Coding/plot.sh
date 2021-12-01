@@ -9,6 +9,6 @@ done
 pushd plots/N1e8Noutputs1e4
 for i in *[0-9]_wo_Jupiter_et_al.svg
 do
-	convert ${i} ${i/.svg/.png}
+	convert ${i} png/${i/.svg/.png}
 done
 popd
