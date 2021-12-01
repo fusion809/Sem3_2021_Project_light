@@ -34,7 +34,7 @@ fColl = open(writeFileColl, "w")
 sim.dt = 0.02
 Noutputs = 10000
 noYears = 1e8
-Nobj = 9
+Nobj = 8
 
 # Times we're getting our solution values for
 times = np.linspace(0.,int(noYears), Noutputs)
