@@ -42,7 +42,7 @@ Noutputs = 10000
 Nobj = 8
 
 # Times we're getting our solution values for
-times = np.linspace(t0[no],tf[no], Noutputs)
+times = np.linspace(t0[no-1],tf[no-1], Noutputs)
 
 # Coordinate arrays
 x = np.zeros((Nobj,Noutputs))
