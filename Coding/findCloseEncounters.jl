@@ -44,6 +44,7 @@ for i=1:48
     dfParam = DataFrame(CSV.File(paramFile))
 
     # Extract coords and params
+    t = df.t
     x = df.x
     y = df.y
     z = df.z
@@ -65,9 +66,8 @@ for i=1:48
                 dist = sqrt(xDistSq + yDistSq + zDistSq)
                 hillRad = a[planetIndex] * (1-e[planetIndex]) * 
                 cbrt(m[k+1]/(3*M))
-                if (dist < 5*hillRad)
-                    println("Asteroid " * string(i) * " clone " * string(l) * 
-                    " is within the Hill radius of " * planName[k+1])
+                if (dist < 5 * hillRad)
+                    println(string(t[j-1]) * "," * string(t[j+1]) * "," * string(i) * "," * string(l))
                 end
             end
         end
