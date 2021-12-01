@@ -40,10 +40,11 @@ coordsMat = np.array([[0, 0, 0],
 
 def findIndex(t0, Noutputs, asteroidNo, cloneNo):
     t = pd.read_csv("output/ordinary/coords_and_vel_" + str(asteroidNo) + ".csv")["t"]
-    counter = 0
-    for i in t == t0:
-        if i and counter >= 7 * Noutputs + cloneNo:
-            return counter
+    t = np.asarray(t)
+    indices = np.where(t == t0)[0]
+    for i in indices:
+        if i >= 7 * Noutputs + cloneNo * Noutputs:
+            return i
 
 def getEphemeres(t0, Noutputs, asteroidNo, cloneNo):
     index = findIndex(t0, Noutputs, asteroidNo, cloneNo)
@@ -58,14 +59,14 @@ def getEphemeres(t0, Noutputs, asteroidNo, cloneNo):
 
 def getEphemeresOther(t0, Noutputs, asteroidNo, cloneNo, objNo):
     index = findIndex(t0, Noutputs, asteroidNo, cloneNo)
-    ephData = pd.read_csv("output/ordinary/coords_and_vel_base.csv")
+    ephData = pd.read_csv("output/coords_and_vel_base.csv")
     x = ephData["x"]
     y = ephData["y"]
     z = ephData["z"]
     vx = ephData["vx"]
     vy = ephData["vy"]
     vz = ephData["vz"]
-    newIndex = objNo * Noutputs + (index - 7000 - cloneNo*Noutputs)
+    newIndex = objNo * Noutputs + (index - 7*Noutputs - cloneNo*Noutputs)
     return x[newIndex], y[newIndex], z[newIndex], vx[newIndex], vy[newIndex], vz[newIndex]
 
 for x in newIDs:
