@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 import matplotlib.pyplot as plt
+plt.style.use('tableau-colorblind10')
 import pandas as pd
 
 # Args

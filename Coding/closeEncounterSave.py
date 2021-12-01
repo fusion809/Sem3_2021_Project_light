@@ -69,7 +69,7 @@ def getEphemeresOther(t0, Noutputs, asteroidNo, cloneNo, objNo):
     newIndex = objNo * Noutputs + (index - 7*Noutputs - cloneNo*Noutputs)
     return x[newIndex], y[newIndex], z[newIndex], vx[newIndex], vy[newIndex], vz[newIndex]
 
-for x in newIDs:
+for ast in newIDs:
    # Add the required large bodies to database
    sim = rebound.Simulation()
    sim.units = ('AU', 'yr', 'Msun')
