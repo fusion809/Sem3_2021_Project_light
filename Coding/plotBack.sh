@@ -2,7 +2,7 @@
 for i in {1..48}
 do
 	if [[ -s output/back/coords_and_velBack_${i}.csv ]] && [[ -s output/back/parametersBack_${i}.csv ]]; then
-		python plot.py ${i}
+		python plotBack.py ${i}
 	fi
 done
 

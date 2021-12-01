@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-./plotBack.py && \
+./plotBackAngles.py && \
 pushd plots && \
 for i in *longitude_plot.svg
 do
