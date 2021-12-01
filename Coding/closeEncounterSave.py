@@ -82,5 +82,5 @@ for x in newIDs:
    sim.add(m=0, x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
    
    # Save the solar system and increase count by 1
-   sim.save("data/simulation_asteroid_close" + str(count) + ".bin")
+   sim.save("data/simulation_asteroid_close_" + str(count) + ".bin")
    count += 1

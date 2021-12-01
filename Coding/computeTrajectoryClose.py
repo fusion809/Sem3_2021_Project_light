@@ -13,7 +13,7 @@ no = args.integers[0]
 filename = os.path.expanduser('~')
 basedir = filename + "/Sem3_2021_Project/Coding/"
 filename = basedir + "data/"
-filename += "simulation_asteroid_close" + str(no) + ".bin"
+filename += "simulation_asteroid_close_" + str(no) + ".bin"
 
 # Create simulation object
 sim = rebound.Simulation(filename)

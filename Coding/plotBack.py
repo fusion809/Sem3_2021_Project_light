@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 
 Noutputs = 10000
+Nmax = Noutputs
 # 0 - 9999 Venus
 # 10000 - 19999 Earth
 # 20000 - 29999 Mars
@@ -22,7 +23,7 @@ for i in range(1, astMax):
     Omega = dfParam['Omega']
     f = dfParam['f']
     nodalLong = Omega
-    plt.plot(t[0:Noutputs], nodalLong[70000:80000] * 180/np.pi)
+    plt.plot(t[0:Nmax], nodalLong[70000:70000 + Nmax] * 180/np.pi)
     # plt.plot(t[0:Noutputs], nodalLong[80000:90000])
     # plt.plot(t[0:Noutputs], nodalLong[90000:100000])
     # plt.plot(t[0:Noutputs], nodalLong[100000:110000])
@@ -44,7 +45,7 @@ for i in range(1, astMax):
     omega = dfParam['omega']
     f = dfParam['f']
     periLong = omega
-    plt.plot(t[0:Noutputs], periLong[70000:80000] * 180/np.pi)
+    plt.plot(t[0:Nmax], periLong[70000:70000 + Nmax] * 180/np.pi)
     # plt.plot(t[0:Noutputs], periLong[80000:90000])
     # plt.plot(t[0:Noutputs], periLong[90000:100000])
     # plt.plot(t[0:Noutputs], periLong[100000:110000])
