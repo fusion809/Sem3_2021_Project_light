@@ -34,7 +34,7 @@ fColl = open(writeFileColl, "w")
 # closeEncounters.csv
 data = pd.read_csv("closeEncounters.csv")
 t0 = data["t0"]
-tf = data["tf"]
+tf = data["t1"]
 
 # Define the variables related to the simulation
 sim.dt = 0.002
