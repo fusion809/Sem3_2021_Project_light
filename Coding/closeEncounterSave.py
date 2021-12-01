@@ -7,7 +7,7 @@ import numpy as np
 filename = '416_svea.tab'
 data = pd.read_csv(filename, sep = '\s', header=None)
 IDs = data.iloc[:, 0]
-count = 0
+count = 1
 
 # close encounters
 closeFile = "closeEncounters.csv"
@@ -75,11 +75,11 @@ for x in newIDs:
    sim.units = ('AU', 'yr', 'Msun')
 
    for i in range(0, 8):
-       x, y, z, vx, vy, vz = getEphemeresOther(t0[count], Noutputs, astNo[count], clonNo[count], i)
+       x, y, z, vx, vy, vz = getEphemeresOther(t0[count-1], Noutputs, astNo[count-1], clonNo[count-1], i)
        sim.add(m=m[i], x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
 
    # Add asteroid clone
-   x, y, z, vx, vy, vz = getEphemeres(t0[count], Noutputs, astNo[count], clonNo[count])
+   x, y, z, vx, vy, vz = getEphemeres(t0[count-1], Noutputs, astNo[count-1], clonNo[count-1])
    sim.add(m=0, x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
    
    # Save the solar system and increase count by 1
