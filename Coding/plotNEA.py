@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import matplotlib.pyplot as plt
+plt.style.use('tableau-colorblind10')
 import pandas as pd
 import numpy as np
 from matplotlib import cm
