@@ -1,67 +1,77 @@
 #!/usr/bin/env python
+import argparse
 import matplotlib.pyplot as plt
 plt.style.use('tableau-colorblind10')
-import numpy as np
 import pandas as pd
 
+# Args
+parser = argparse.ArgumentParser(description='Plot the trajectory of celestial bodies in specified file')
+parser.add_argument('integer', metavar='no', type=int, nargs="+", help="Integers specifying the file to be used")
+args = parser.parse_args()
+no = args.integer[0]
+
+# Read file
+file = "output/back/coords_and_velBack_" + str(no) + ".csv"
+paramsFile = "output/back/parametersBack_" + str(no) + ".csv"
+df = pd.read_csv(file, sep=",")
+paramsDf = pd.read_csv(paramsFile, sep=",")
+times = df['t']
+x = df['x']
+y = df['y']
+z = df['z']
+a = paramsDf['a']
+e = paramsDf['e']
+inc = paramsDf['inc']
 Noutputs = 10000
-Nmax = Noutputs
-# 0 - 9999 Venus
-# 10000 - 19999 Earth
-# 20000 - 29999 Mars
-# 30000 - 39999 Jupiter
-# 40000 - 49999 Saturn
-# 50000 - 59999 Uranus
-# 60000 - 69999 Neptune
-# 70000 - 16000 Asteroids clones 0 to 9
-plt.figure(1)
-astMax = 48
-astMax += 1
-for i in range(1, astMax):
-    df = pd.read_csv("output/back/coords_and_velBack_" + str(i) + ".csv")
-    dfParam = pd.read_csv("output/back/parametersBack_" + str(i) + ".csv")
-    t = df['t']
-    Omega = dfParam['Omega']
-    f = dfParam['f']
-    nodalLong = Omega
-    plt.plot(t[0:Nmax], nodalLong[70000:70000 + Nmax] * 180/np.pi)
-    # plt.plot(t[0:Noutputs], nodalLong[80000:90000])
-    # plt.plot(t[0:Noutputs], nodalLong[90000:100000])
-    # plt.plot(t[0:Noutputs], nodalLong[100000:110000])
-    # plt.plot(t[0:Noutputs], nodalLong[110000:120000])
-    # plt.plot(t[0:Noutputs], nodalLong[120000:130000])
-    # plt.plot(t[0:Noutputs], nodalLong[130000:140000])
-    # plt.plot(t[0:Noutputs], nodalLong[140000:150000])
-    # plt.plot(t[0:Noutputs], nodalLong[150000:160000])
-plt.xlabel("t (years)")
-plt.ylabel("Nodal longitude (degrees)")
-plt.title("Nodal longitude against time")
-plt.savefig("plots/Nodal_longitude_plot.svg")
-plt.figure(2)
-for i in range(1, astMax):
-    df = pd.read_csv("output/back/coords_and_velBack_" + str(i) + ".csv")
-    dfParam = pd.read_csv("output/back/parametersBack_" + str(i) + ".csv")
-    t = df['t']
-    Omega = dfParam['Omega']
-    omega = dfParam['omega']
-    f = dfParam['f']
-    periLong = omega
-    plt.plot(t[0:Nmax], periLong[70000:70000 + Nmax] * 180/np.pi)
-    # plt.plot(t[0:Noutputs], periLong[80000:90000])
-    # plt.plot(t[0:Noutputs], periLong[90000:100000])
-    # plt.plot(t[0:Noutputs], periLong[100000:110000])
-    # plt.plot(t[0:Noutputs], periLong[110000:120000])
-    # plt.plot(t[0:Noutputs], periLong[120000:130000])
-    # plt.plot(t[0:Noutputs], periLong[130000:140000])
-    # plt.plot(t[0:Noutputs], periLong[140000:150000])
-    # plt.plot(t[0:Noutputs], periLong[150000:160000])
-plt.xlabel("t (years)")
-plt.ylabel("Perihelion longitude (degrees)")
-plt.title("Perihelion longitude against time")
-plt.savefig("plots/Perihelion_longitude_plot.svg")
-# 3-5 Hill radii, if it crosses that start the simulation at the 
-# time step - 1 until it leaves the 3-5 Hill radii.
-# If any object is NEA, add to simulation with Bennu
-# Start characterizing asteroids by whether they get ejected, become centaurs 
-# or neos.
-# Maybe make graphs colourblind friendly.
+
+# Plot each clone relative to the terrestrial planets we've modelled
+for i in range(0, 9):
+    # Starting index 
+    startIndex = (i + 7) * Noutputs
+    endIndex = (i + 8) * Noutputs
+    asteroidLabel = "Asteroid_" + str(no) + "_clone_" + str(i)
+    asteroidLabelTeX = "Asteroid " + str(no) + " clone " + str(i)
+
+    # First figure is a plot of the ith clone of the asteroid and 
+    # Venus, Earth and Mars
+    plt.figure(1)
+    plt.plot(x[0:Noutputs], y[0:Noutputs], label="Venus")
+    plt.plot(x[Noutputs:2*Noutputs], y[Noutputs:2*Noutputs], label="Earth")
+    plt.plot(x[2*Noutputs:3*Noutputs], y[2*Noutputs:3*Noutputs], label="Mars")
+    plt.plot(x[startIndex:endIndex], y[startIndex:endIndex], label=asteroidLabelTeX)
+    plt.xlabel("x (AU)")
+    plt.ylabel("y (AU)")
+    plt.title("Trajectory of Venus, Earth, Mars and " + asteroidLabelTeX)
+    plt.legend()
+    plt.savefig("plots/N1e8Noutputs1e4/" + asteroidLabel + "_back_wo_Jupiter_et_al.svg")
+    plt.close(fig=1)
+
+    # Semi-major axis vs time plot
+    plt.figure(2)
+    plt.plot(times[startIndex:endIndex], a[startIndex:endIndex], label=asteroidLabelTeX)
+    plt.xlabel("t (years)")
+    plt.ylabel("Semimajor axis (AU)")
+    plt.title("Semimajor axis vs time plot for " + asteroidLabelTeX)
+    plt.legend()
+    plt.savefig("plots/Semimajor_axis/" + asteroidLabel + "_back_semimajor_time.svg")
+    plt.close(fig=2)
+
+    # Eccentricity vs time plot
+    plt.figure(3)
+    plt.plot(times[startIndex:endIndex], e[startIndex:endIndex], label=asteroidLabelTeX)
+    plt.xlabel("t (years)")
+    plt.ylabel("Eccentricity")
+    plt.title("Eccentricity vs time plot for " + asteroidLabelTeX)
+    plt.legend()
+    plt.savefig("plots/Eccentricity/" + asteroidLabel + "_back_eccentricity_time.svg")
+    plt.close(fig=3)
+    
+    # Inclination vs time plot
+    plt.figure(4)
+    plt.plot(times[startIndex:endIndex], inc[startIndex:endIndex], label=asteroidLabelTeX)
+    plt.xlabel("t (years)")
+    plt.ylabel("Inclination")
+    plt.title("Inclination vs time plot for " + asteroidLabelTeX)
+    plt.legend()
+    plt.savefig("plots/Inclination/" + asteroidLabel + "_back_inclination_time.svg")
+    plt.close(fig=4)
