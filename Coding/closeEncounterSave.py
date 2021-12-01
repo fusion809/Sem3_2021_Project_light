@@ -20,6 +20,9 @@ tf = closeDat["t1"]
 newIDs = IDs[astNo]
 count = 0
 
+# masses
+m = np.array([1, 4.8675e24/(1.9885e30), 5.9724e24/(1.9885e30), 6.4171e23/(1.9885e30), 1.898187e27/(1.9885e30), 5.68317e26/(1.9885e30), 8.6813e25/(1.9885e30), 1.02413e26/(1.9885e30)])
+
 Noutputs = 10000
 
 def addAsteroid(coordsVec, coordsUncertVec, velVec, coefs, sim):
@@ -60,7 +63,7 @@ def getEphemeres(t0, Noutputs, asteroidNo, cloneNo):
 
 def getEphemeresOther(t0, Noutputs, asteroidNo, cloneNo, objNo):
     index = findIndex(t0, Noutputs, asteroidNo, cloneNo)
-    ephData = pd.read_csv("output/ordinary/coords_and_vel_" + str(asteroidNo) + ".csv")
+    ephData = pd.read_csv("output/ordinary/coords_and_vel_base.csv")
     x = ephData["x"]
     y = ephData["y"]
     z = ephData["z"]
@@ -75,24 +78,13 @@ for x in newIDs:
    sim = rebound.Simulation()
    sim.units = ('AU', 'yr', 'Msun')
 
-   sim.add("Sun", m=1)
-   xVe, yVe, zVe, vxVe, vyVe, vzVe = getEphemeresOther(t0[count], Noutputs, astNo[count], clonNo[count], 1)
-   sim.add(m=2.448e-6, x=xVe, y=yVe, z=zVe, vx=vxVe, vy=vyVe, vz=vzVe)
-   sim.add("Earth", date=dateStr)
-   sim.add("Mars", date=dateStr)
-   sim.add("Jupiter", date=dateStr)
-   sim.add("Saturn", date=dateStr)
-   sim.add("Uranus", date=dateStr)
-   sim.add("Neptune", date=dateStr)
+   for i in range(0, 8):
+       x, y, z, vx, vy, vz = getEphemeresOther(t0[count], Noutputs, astNo[count], clonNo[count], i)
+       sim.add(m=m[i], x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
 
-   # Add the required asteroids
-   print("Adding asteroid number: ", count)
-   print("name: ", name)
-   print("coordsVec: ", coordsVec)
-   print("velVec: ", velVec)
-   print("coordsUncertVec: ", coordsUncertVec)
-   sim = addAsteroid(coordsVec, coordsUncertVec, velVec, clonNo[count])
-
+   x, y, z, vx, vy, vz = getEphemeres(t0[count], Noutputs, astNo[count], clonNo[count])
+   sim.add(m=0, x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
+   
    # Save the solar system and increase count by 1
    sim.save("data/simulation_asteroid_close" + str(count) + ".bin")
    count += 1
