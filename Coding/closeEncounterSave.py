@@ -1,14 +1,13 @@
 #!/usr/bin/env python
-import re, rebound, requests
+import rebound
 import pandas as pd
 import numpy as np
-from astroquery.jplhorizons import Horizons
 
 # Extract asteroid IDs
 filename = '416_svea.tab'
 data = pd.read_csv(filename, sep = '\s', header=None)
 IDs = data.iloc[:, 0]
-count = 1
+count = 0
 
 # close encounters
 closeFile = "closeEncounters.csv"
@@ -18,21 +17,17 @@ clonNo = closeDat["clone"]
 t0 = closeDat["t0"]
 tf = closeDat["t1"]
 newIDs = IDs[astNo]
-count = 0
 
 # masses
-m = np.array([1, 4.8675e24/(1.9885e30), 5.9724e24/(1.9885e30), 6.4171e23/(1.9885e30), 1.898187e27/(1.9885e30), 5.68317e26/(1.9885e30), 8.6813e25/(1.9885e30), 1.02413e26/(1.9885e30)])
-
+m = np.array([1, 
+4.8675e24/(1.9885e30), 
+5.9724e24/(1.9885e30), 
+6.4171e23/(1.9885e30), 
+1.898187e27/(1.9885e30), 
+5.68317e26/(1.9885e30), 
+8.6813e25/(1.9885e30), 
+1.02413e26/(1.9885e30)])
 Noutputs = 10000
-
-def addAsteroid(coordsVec, coordsUncertVec, velVec, coefs, sim):
-   sim.add(m=0, 
-           x=coordsVec[0] + coefs[0] * coordsUncertVec[0],
-           y=coordsVec[1] + coefs[1] * coordsUncertVec[1], 
-           z=coordsVec[2] + coefs[2] * coordsUncertVec[2], 
-           vx=velVec[0], vy=velVec[1], vz=velVec[2])
-   return sim
-
 coordsMat = np.array([[0, 0, 0],
 [1,  -1, -1],
 [-1,  1, -1],
@@ -82,6 +77,7 @@ for x in newIDs:
        x, y, z, vx, vy, vz = getEphemeresOther(t0[count], Noutputs, astNo[count], clonNo[count], i)
        sim.add(m=m[i], x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
 
+   # Add asteroid clone
    x, y, z, vx, vy, vz = getEphemeres(t0[count], Noutputs, astNo[count], clonNo[count])
    sim.add(m=0, x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
    

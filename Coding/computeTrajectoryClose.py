@@ -13,30 +13,28 @@ no = args.integers[0]
 filename = os.path.expanduser('~')
 basedir = filename + "/Sem3_2021_Project/Coding/"
 filename = basedir + "data/"
-filename += "simulation_asteroid" + str(no) + ".bin"
+filename += "simulation_asteroid_close" + str(no) + ".bin"
 
 # Create simulation object
 sim = rebound.Simulation(filename)
 sim.collision = "direct"
 
 # Files to write to
-writeFileParams = basedir + "output/parameters_"
+writeFileParams = basedir + "output/parameters_close_"
 writeFileParams += str(no) + ".csv"
 fParams = open(writeFileParams, "w")
-writeFileCoords = basedir + "output/coords_and_vel_"
+writeFileCoords = basedir + "output/coords_and_vel_close_"
 writeFileCoords += str(no) + ".csv"
 fCoords = open(writeFileCoords, "w")
-writeFileColl = basedir + "output/collision_"
+writeFileColl = basedir + "output/collision_close_"
 writeFileColl += str(no) + ".csv"
 fColl = open(writeFileColl, "w")
-writeFileEscap = basedir + "output/escaped_" + str(no) + ".csv"
-fEscap = open(writeFileEscap, "w")
 
 # Define the variables related to the simulation
 sim.dt = 0.02
 Noutputs = 10000
 noYears = 1e8
-Nobj = 9 + 8 - 1
+Nobj = 9
 
 # Times we're getting our solution values for
 times = np.linspace(0.,int(noYears), Noutputs)
@@ -64,7 +62,6 @@ sim.move_to_com()
 ps = sim.particles
 counter = np.zeros((Nobj,1))
 fColl.write("t,particle1,particle2\n")
-fEscap.write("t,particle\n")
 for i,time in enumerate(times):
     try:
         sim.integrate(time)
@@ -91,9 +88,6 @@ for i,time in enumerate(times):
         vy[j][i] = ps[j+1].vy
         vz[j][i] = ps[j+1].vz
         a[j][i] = ps[j+1].orbit.a
-        if (ps[j+1].orbit.d > 100 and counter[j] == 0):
-            fEscap.write(str(time) + "," + str(j) + "\n")
-            counter[j] += 1
         e[j][i] = ps[j+1].orbit.e
         inc[j][i] = ps[j+1].orbit.inc
         Omega[j][i] = ps[j+1].orbit.Omega
