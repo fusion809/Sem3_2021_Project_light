@@ -14,8 +14,6 @@ sim = rebound.Simulation(filename)
 sim.collision = "direct"
 
 # Files to write to
-writeFileParams = basedir + "output/parameters_base.csv"
-fParams = open(writeFileParams, "w")
 writeFileCoords = basedir + "output/coords_and_vel_base.csv"
 fCoords = open(writeFileCoords, "w")
 
@@ -35,12 +33,6 @@ y = np.zeros((Nobj,Noutputs))
 vy = np.zeros((Nobj,Noutputs))
 z = np.zeros((Nobj,Noutputs))
 vz = np.zeros((Nobj,Noutputs))
-a = np.zeros((Nobj,Noutputs))
-e = np.zeros((Nobj,Noutputs))
-inc = np.zeros((Nobj,Noutputs))
-Omega = np.zeros((Nobj,Noutputs))
-omega = np.zeros((Nobj,Noutputs))
-f = np.zeros((Nobj,Noutputs))
 
 # We use the mercurius integrator because it switches to ias15 when objects get 
 # close, but otherwise uses WHF
@@ -61,24 +53,11 @@ for i,time in enumerate(times):
         vx[j][i] = ps[j].vx
         vy[j][i] = ps[j].vy
         vz[j][i] = ps[j].vz
-        a[j][i] = ps[j].orbit.a
-        e[j][i] = ps[j].orbit.e
-        inc[j][i] = ps[j].orbit.inc
-        Omega[j][i] = ps[j].orbit.Omega
-        omega[j][i] = ps[j].orbit.omega
-        f[j][i] = ps[j].orbit.f
 
 # Write to file
 fCoords.write("t,x,y,z,vx,vy,vz\n")
-fParams.write("a,e,inc,Omega,omega,f\n")
 for j in range(0, Nobj):
     for i in range(0, len(times)):
-        fParams.write(str(a[j][i]) + ",")
-        fParams.write(str(e[j][i]) + ",")
-        fParams.write(str(inc[j][i]) + ",")
-        fParams.write(str(Omega[j][i]) + ",")
-        fParams.write(str(omega[j][i]) + ",")
-        fParams.write(str(f[j][i]) + "\n")
         fCoords.write(str(times[i]) + ",")
         fCoords.write(str(x[j][i]) + ",")
         fCoords.write(str(y[j][i]) + ",")
@@ -87,5 +66,4 @@ for j in range(0, Nobj):
         fCoords.write(str(vy[j][i]) + ",")
         fCoords.write(str(vz[j][i]) + "\n")
 
-fParams.close()
 fCoords.close()
