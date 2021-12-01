@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import rebound, argparse, os
+import pandas as pd
 import numpy as np
 
 # Args
@@ -30,14 +31,18 @@ writeFileColl = basedir + "output/collision_close_"
 writeFileColl += str(no) + ".csv"
 fColl = open(writeFileColl, "w")
 
+# closeEncounters.csv
+data = pd.read_csv("closeEncounters.csv")
+t0 = data["t0"]
+tf = data["tf"]
+
 # Define the variables related to the simulation
-sim.dt = 0.02
+sim.dt = 0.002
 Noutputs = 10000
-noYears = 1e8
 Nobj = 8
 
 # Times we're getting our solution values for
-times = np.linspace(0.,int(noYears), Noutputs)
+times = np.linspace(t0[no],tf[no], Noutputs)
 
 # Coordinate arrays
 x = np.zeros((Nobj,Noutputs))
