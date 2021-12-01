@@ -43,7 +43,7 @@ for i in range(0, 9):
     plt.ylabel("y (AU)")
     plt.title("Trajectory of Venus, Earth, Mars and " + asteroidLabelTeX)
     plt.legend()
-    plt.savefig("plots/N1e8Noutputs1e4/" + asteroidLabel + "_back_wo_Jupiter_et_al.svg")
+    plt.savefig("plots/N1e8Noutputs1e4/" + asteroidLabel + "_wo_Jupiter_et_al.svg")
     plt.close(fig=1)
 
     # Semi-major axis vs time plot
@@ -53,7 +53,7 @@ for i in range(0, 9):
     plt.ylabel("Semimajor axis (AU)")
     plt.title("Semimajor axis vs time plot for " + asteroidLabelTeX)
     plt.legend()
-    plt.savefig("plots/Semimajor_axis/" + asteroidLabel + "_back_semimajor_time.svg")
+    plt.savefig("plots/Semimajor_axis/" + asteroidLabel + "_semimajor_time.svg")
     plt.close(fig=2)
 
     # Eccentricity vs time plot
@@ -63,7 +63,7 @@ for i in range(0, 9):
     plt.ylabel("Eccentricity")
     plt.title("Eccentricity vs time plot for " + asteroidLabelTeX)
     plt.legend()
-    plt.savefig("plots/Eccentricity/" + asteroidLabel + "_back_eccentricity_time.svg")
+    plt.savefig("plots/Eccentricity/" + asteroidLabel + "_eccentricity_time.svg")
     plt.close(fig=3)
     
     # Inclination vs time plot
@@ -73,5 +73,5 @@ for i in range(0, 9):
     plt.ylabel("Inclination")
     plt.title("Inclination vs time plot for " + asteroidLabelTeX)
     plt.legend()
-    plt.savefig("plots/Inclination/" + asteroidLabel + "_back_inclination_time.svg")
+    plt.savefig("plots/Inclination/" + asteroidLabel + "_inclination_time.svg")
     plt.close(fig=4)

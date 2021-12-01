@@ -12,7 +12,7 @@ no = args.integer[0]
 
 # Read file
 file = "output/back/coords_and_velBack_" + str(no) + ".csv"
-paramsFile = "output/back/parameters_" + str(no) + ".csv"
+paramsFile = "output/back/parametersBack_" + str(no) + ".csv"
 df = pd.read_csv(file, sep=",")
 paramsDf = pd.read_csv(paramsFile, sep=",")
 times = df['t']
