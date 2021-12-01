@@ -11,8 +11,8 @@ args = parser.parse_args()
 no = args.integer[0]
 
 # Read file
-file = "output/ordinary/coords_and_vel_" + str(no) + ".csv"
-paramsFile = "output/ordinary/parameters_" + str(no) + ".csv"
+file = "output/ordinary/output/coords_and_vel_" + str(no) + ".csv"
+paramsFile = "output/ordinary/output/parameters_" + str(no) + ".csv"
 df = pd.read_csv(file, sep=",")
 paramsDf = pd.read_csv(paramsFile, sep=",")
 times = df['t']
