@@ -37,7 +37,7 @@ t0 = data["t0"]
 tf = data["t1"]
 
 # Define the variables related to the simulation
-sim.dt = 0.002
+sim.dt = 0.02
 Noutputs = 10000
 Nobj = 8
 
