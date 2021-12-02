@@ -79,8 +79,8 @@ for ast in newIDs:
        sim.add(m=m[i], x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
 
    # Add asteroid clone
-   x, y, z, vx, vy, vz = getEphemeres(t0[count-1], Noutputs, astNo[count-1], clonNo[count-1])
-   sim.add(m=0, x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
+   xAst, yAst, zAst, vxAst, vyAst, vzAst = getEphemeres(t0[count-1], Noutputs, astNo[count-1], clonNo[count-1])
+   sim.add(m=0, x=xAst, y=yAst, z=zAst, vx=vxAst, vy=vyAst, vz=vzAst)
    
    # Save the solar system and increase count by 1
    sim.save("data/simulation_asteroid_close_" + str(count) + ".bin")
