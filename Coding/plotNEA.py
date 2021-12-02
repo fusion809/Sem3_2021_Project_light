@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 plt.style.use('tableau-colorblind10')
 import pandas as pd
 import numpy as np
-from matplotlib import cm
-from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 
 # Number of outputs
 Noutputs = 10000
@@ -52,21 +50,29 @@ e_arr = e_arr.flatten()
 # First figure with semi-major axis difference used for colour gradient
 fig1 = plt.figure(1)
 ax1 = fig1.add_subplot(111)
-p1 = ax1.scatter(a_arr, e_arr, c=diffa)
+p1 = ax1.scatter(a_arr, e_arr, c=diffa, label="Final value along trajectory")
 fig1.colorbar(p1, label="Semi-major axis difference")
+N=20
+x1 = 2.502*np.ones((N, 1))
+x2 = np.linspace(0, 0.3, N)
+y1 = x2
+ax1.scatter(x1, y1, marker='*', label="Kirkwood gap")
 plt.xlabel("Semi-major axis (AU)")
 plt.ylabel("Eccentricity")
 plt.title("Eccentricity vs semi-major axis plot")
+plt.legend(loc="lower left")
 plt.savefig("plots/Eccentricity_vs_semimajor_axis/SMA_colour_grade_all_clones.svg")
 plt.close()
 
 # Second figure with eccentricity difference used for colour gradient
 fig2 = plt.figure(2)
 ax2 = fig2.add_subplot(111)
-p2 = ax2.scatter(a_arr, e_arr, c=diffe)
+p2 = ax2.scatter(a_arr, e_arr, c=diffe, label="Final value along trajectory")
 fig2.colorbar(p2, label="Eccentricity difference")
+ax2.scatter(x1, y1, marker='*', label="Kirkwood gap")
 plt.xlabel("Semi-major axis (AU)")
 plt.ylabel("Eccentricity")
 plt.title("Eccentricity vs semi-major axis plot")
+plt.legend(loc="lower left")
 plt.savefig("plots/Eccentricity_vs_semimajor_axis/E_colour_grade_all_clones.svg")
 plt.close()
