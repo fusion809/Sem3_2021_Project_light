@@ -39,7 +39,7 @@ coordsMat = np.array([[0, 0, 0],
 [-1, -1, -1]])
 
 def findIndex(t0, Noutputs, asteroidNo, cloneNo):
-    t = pd.read_csv("output/ordinary/coords_and_vel_" + str(asteroidNo) + ".csv")["t"]
+    t = pd.read_csv("output/ordinary/output/coords_and_vel_" + str(asteroidNo) + ".csv")["t"]
     t = np.asarray(t)
     indices = np.where(t == t0)[0]
     for i in indices:
@@ -48,7 +48,7 @@ def findIndex(t0, Noutputs, asteroidNo, cloneNo):
 
 def getEphemeres(t0, Noutputs, asteroidNo, cloneNo):
     index = findIndex(t0, Noutputs, asteroidNo, cloneNo)
-    ephData = pd.read_csv("output/ordinary/coords_and_vel_" + str(asteroidNo) + ".csv")
+    ephData = pd.read_csv("output/ordinary/output/coords_and_vel_" + str(asteroidNo) + ".csv")
     x = ephData["x"]
     y = ephData["y"]
     z = ephData["z"]
