@@ -18,8 +18,8 @@ plt.figure(1)
 astMax = 48
 astMax += 1
 for i in range(1, astMax):
-    df = pd.read_csv("output/back/coords_and_velBack_" + str(i) + ".csv")
-    dfParam = pd.read_csv("output/back/parametersBack_" + str(i) + ".csv")
+    df = pd.read_csv("../output/back/coords_and_velBack_" + str(i) + ".csv")
+    dfParam = pd.read_csv("../output/back/parametersBack_" + str(i) + ".csv")
     t = df['t']
     Omega = dfParam['Omega']
     f = dfParam['f']
@@ -36,11 +36,11 @@ for i in range(1, astMax):
 plt.xlabel("t (years)")
 plt.ylabel("Nodal longitude (degrees)")
 plt.title("Nodal longitude against time")
-plt.savefig("plots/Nodal_longitude_plot.svg")
+plt.savefig("../plots/Nodal_longitude_plot.svg")
 plt.figure(2)
 for i in range(1, astMax):
-    df = pd.read_csv("output/back/coords_and_velBack_" + str(i) + ".csv")
-    dfParam = pd.read_csv("output/back/parametersBack_" + str(i) + ".csv")
+    df = pd.read_csv("../output/back/coords_and_velBack_" + str(i) + ".csv")
+    dfParam = pd.read_csv("../output/back/parametersBack_" + str(i) + ".csv")
     t = df['t']
     Omega = dfParam['Omega']
     omega = dfParam['omega']
@@ -58,7 +58,7 @@ for i in range(1, astMax):
 plt.xlabel("t (years)")
 plt.ylabel("Perihelion longitude (degrees)")
 plt.title("Perihelion longitude against time")
-plt.savefig("plots/Perihelion_longitude_plot.svg")
+plt.savefig("../plots/Perihelion_longitude_plot.svg")
 # 3-5 Hill radii, if it crosses that start the simulation at the 
 # time step - 1 until it leaves the 3-5 Hill radii.
 # If any object is NEA, add to simulation with Bennu

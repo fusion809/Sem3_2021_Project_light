@@ -82,5 +82,5 @@ for x in IDs:
    sim = addAsteroid(coordsVec, coordsUncertVec, velVec, [-1, -1, -1], sim)
 
    # Save the solar system and increase count by 1
-   sim.save("data/simulation_asteroid" + str(count) + ".bin")
+   sim.save("../data/simulation_asteroid" + str(count) + ".bin")
    count += 1

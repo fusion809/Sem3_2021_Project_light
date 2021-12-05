@@ -17,7 +17,7 @@ filename += "simulation_asteroid_close_" + str(no) + ".bin"
 sim = rebound.Simulation(filename)
 
 # closeEncounters.csv
-data = pd.read_csv("closeEncounters.csv")
+data = pd.read_csv("../closeEncounters.csv")
 t0 = data["t0"]
 tf = data["t1"]
 

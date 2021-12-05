@@ -14,12 +14,12 @@ a_arr = np.ones((48, 9)) * np.nan
 e_arr = np.ones((48, 9)) * np.nan
 
 # List of escaped particles
-escapes_19 = pd.read_csv("output/ordinary/output/escaped_19.csv")["particle"]
-escapes_25 = pd.read_csv("output/ordinary/output/escaped_25.csv")["particle"]
+escapes_19 = pd.read_csv("../output/ordinary/output/escaped_19.csv")["particle"]
+escapes_25 = pd.read_csv("../output/ordinary/output/escaped_25.csv")["particle"]
 # Loop over all asteroids
 for i in range(1, 49):
     # Extract semi-major axis (a) and eccentricities (e)
-    params = pd.read_csv("output/ordinary/output/parameters_" + str(i) + ".csv")
+    params = pd.read_csv("../output/ordinary/output/parameters_" + str(i) + ".csv")
     a = params['a']
     e = params['e']
 
@@ -61,7 +61,7 @@ plt.xlabel("Semi-major axis (AU)")
 plt.ylabel("Eccentricity")
 plt.title("Eccentricity vs semi-major axis plot")
 plt.legend(loc="lower left")
-plt.savefig("plots/Eccentricity_vs_semimajor_axis/SMA_colour_grade_all_clones.svg")
+plt.savefig("../plots/Eccentricity_vs_semimajor_axis/SMA_colour_grade_all_clones.svg")
 plt.close()
 
 # Second figure with eccentricity difference used for colour gradient
@@ -74,5 +74,5 @@ plt.xlabel("Semi-major axis (AU)")
 plt.ylabel("Eccentricity")
 plt.title("Eccentricity vs semi-major axis plot")
 plt.legend(loc="lower left")
-plt.savefig("plots/Eccentricity_vs_semimajor_axis/E_colour_grade_all_clones.svg")
+plt.savefig("../plots/Eccentricity_vs_semimajor_axis/E_colour_grade_all_clones.svg")
 plt.close()

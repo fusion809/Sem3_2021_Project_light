@@ -32,7 +32,7 @@ writeFileColl += str(no) + ".csv"
 fColl = open(writeFileColl, "w")
 
 # closeEncounters.csv
-data = pd.read_csv("closeEncounters.csv")
+data = pd.read_csv("../closeEncounters.csv")
 t0 = data["t0"]
 tf = data["t1"]
 

@@ -5,7 +5,7 @@ import numpy as np
 # Simulation
 ## File our object data is stored within
 filename = os.path.expanduser('~')
-basedir = filename + "/Sem3_2021_Project/Coding/"
+basedir = filename + "/Sem3_2021_Project_light/Coding/"
 filename = basedir + "data/"
 filename += "simulation_base.bin"
 
