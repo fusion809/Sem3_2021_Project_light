@@ -65,7 +65,6 @@ sim.move_to_com()
 
 # Perform integration
 ps = sim.particles
-counter = np.zeros((Nobj,1))
 fColl.write("t,particle1,particle2\n")
 for i,time in enumerate(times):
     try:
