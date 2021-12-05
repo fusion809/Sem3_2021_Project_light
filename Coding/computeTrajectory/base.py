@@ -11,7 +11,6 @@ filename += "simulation_base.bin"
 
 # Create simulation object
 sim = rebound.Simulation(filename)
-sim.collision = "direct"
 
 # Files to write to
 writeFileCoords = basedir + "output/coords_and_vel_base.csv"
@@ -41,7 +40,6 @@ sim.move_to_com()
 
 # Perform integration
 ps = sim.particles
-counter = np.zeros((Nobj,1))
 for i,time in enumerate(times):
     sim.integrate(time)
 

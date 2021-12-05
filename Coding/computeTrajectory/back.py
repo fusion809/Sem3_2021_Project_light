@@ -37,7 +37,7 @@ noYears = -1e8
 Nobj = 9 + 8 - 1
 
 # Times we're getting our solution values for
-times = np.linspace(0.,int(noYears), Noutputs)
+times = np.linspace(0,noYears, Noutputs)
 
 # Coordinate arrays
 x = np.zeros((Nobj,Noutputs))
