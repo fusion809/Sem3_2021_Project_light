@@ -9,7 +9,7 @@ no = 5
 # Simulation
 ## File our object data is stored within
 filename = os.path.expanduser('~')
-basedir = filename + "/Sem3_2021_Project_light/Coding/"
+basedir = filename + "/Sem3_2021_Project_light/"
 filename = basedir + "data/"
 filename += "simulation_asteroid_close_" + str(no) + ".bin"
 
