@@ -38,6 +38,8 @@ coordsMat = np.array([[0, 0, 0],
 [1,   1,  1],
 [-1, -1, -1]])
 
+# Find the index corresponding to the asteroid clone at the time just before 
+# entering 5 x Hill radius
 def findIndex(t0, Noutputs, asteroidNo, cloneNo):
     t = pd.read_csv("output/ordinary/output/coords_and_vel_" + str(asteroidNo) + ".csv")["t"]
     t = np.asarray(t)
@@ -46,6 +48,7 @@ def findIndex(t0, Noutputs, asteroidNo, cloneNo):
         if i >= 7 * Noutputs + cloneNo * Noutputs:
             return i
 
+# Get the ephemeres of an asteroid
 def getEphemeres(t0, Noutputs, asteroidNo, cloneNo):
     index = findIndex(t0, Noutputs, asteroidNo, cloneNo)
     ephData = pd.read_csv("output/ordinary/output/coords_and_vel_" + str(asteroidNo) + ".csv")
@@ -57,6 +60,7 @@ def getEphemeres(t0, Noutputs, asteroidNo, cloneNo):
     vz = ephData["vz"]
     return x[index], y[index], z[index], vx[index], vy[index], vz[index]
 
+# Get the ephemeres of a planet or the Sun
 def getEphemeresOther(t0, Noutputs, asteroidNo, cloneNo, objNo):
     index = findIndex(t0, Noutputs, asteroidNo, cloneNo)
     ephData = pd.read_csv("output/coords_and_vel_base.csv")

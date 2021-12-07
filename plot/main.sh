@@ -6,6 +6,8 @@ do
 		python main.py ${i}
 	fi
 done
+
+# Create png renderings of svgs
 pushd ../plots/N1e8Noutputs1e4
 for i in *[0-9]_wo_Jupiter_et_al.svg
 do

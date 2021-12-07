@@ -6,6 +6,7 @@ do
 	fi
 done
 
+# Create png renderings of svgs
 pushd ../plots/N1e8Noutputs1e4
 for i in *[0-9]_back_wo_Jupiter_et_al.svg
 do
