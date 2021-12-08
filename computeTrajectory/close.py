@@ -61,7 +61,7 @@ f = np.zeros((Nobj,Noutputs))
 # We use the mercurius integrator because it switches to ias15 when objects get 
 # close, but otherwise uses WHF
 sim.integrator = "mercurius"
-sim.move_to_com()
+# sim.move_to_com()
 
 # Perform integration
 ps = sim.particles
