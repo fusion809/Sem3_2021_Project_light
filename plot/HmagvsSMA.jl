@@ -1,4 +1,4 @@
-using CSV, DataFrames
+using CSV, DataFrames, Statistics
 
 # Get data from query CSV file
 queryResult = DataFrame(CSV.File("sbdb_query_results.csv"))
@@ -24,3 +24,12 @@ for i in IDsSvea
     write(writeFile, "$(i),$(Hval),$(aval)\n")
 end
 close(writeFile)
+
+aC = anew[1]
+a = aC
+C = mean(abs.(anew.-aC).*exp.(-log(10)*Hnew/5))
+rho = 1.5
+pV = 0.06
+function tage(a, C)
+    return 1e9 * (C/(1e-4))*(a/2.5)^2*(rho/(2.5))*sqrt(0.2/pV)
+end
