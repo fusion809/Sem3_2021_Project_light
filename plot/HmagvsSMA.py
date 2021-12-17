@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+plt.style.use('tableau-colorblind10')
 import numpy as np
 
 # Get required data
@@ -8,11 +9,11 @@ IDs = dat["ID"]
 H = dat["Hmag"]
 a = dat["SMA"]
 alin = np.linspace(np.min(a), np.max(a), 10001)
-C = 2.5e-5
+C = 3.5e-5
 Hpred = 5*np.log10(np.abs(alin-a[0])/C)
 
 # Plot it
-plt.figure(1)
+plt.figure(1, figsize=(8, 6))
 plt.scatter(a, H, label="Asteroid values")
 plt.plot(alin, Hpred, label="Predicted values with C={}".format(C))
 plt.xlabel("Semimajor axis (AU)", fontsize=20)
