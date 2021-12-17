@@ -19,7 +19,6 @@ filename += "simulation_asteroid_close_" + str(no) + ".bin"
 # Create simulation object
 sim = rebound.Simulation(filename)
 sim.collision = "direct"
-sim.units = ('AU', 'yr', 'Msun')
 
 # Files to write to
 writeFileParams = basedir + "output/parameters_close_"
