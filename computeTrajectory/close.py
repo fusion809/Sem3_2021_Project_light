@@ -19,6 +19,7 @@ filename += "simulation_asteroid_close_" + str(no) + ".bin"
 # Create simulation object
 sim = rebound.Simulation(filename)
 sim.collision = "direct"
+sim.units = ('AU', 'yr', 'Msun')
 
 # Files to write to
 writeFileParams = basedir + "output/parameters_close_"
@@ -60,8 +61,8 @@ f = np.zeros((Nobj,Noutputs))
 
 # We use the mercurius integrator because it switches to ias15 when objects get 
 # close, but otherwise uses WHF
-sim.integrator = "mercurius"
-# sim.move_to_com()
+sim.integrator = "ias15"
+sim.move_to_com()
 
 # Perform integration
 ps = sim.particles
