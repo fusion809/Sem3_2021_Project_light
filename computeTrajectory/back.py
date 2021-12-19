@@ -33,7 +33,7 @@ fColl = open(writeFileColl, "w")
 # Define the variables related to the simulation
 sim.dt = -0.02
 Noutputs = 10000
-noYears = -1e8
+noYears = -1e6
 Nobj = 9 + 8 - 1
 
 # Times we're getting our solution values for
