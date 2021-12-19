@@ -20,13 +20,13 @@ sim = rebound.Simulation(filename)
 sim.collision = "direct"
 
 # Files to write to
-writeFileParams = basedir + "output/parametersBack_"
+writeFileParams = basedir + "output/back/parametersBack_"
 writeFileParams += str(no) + ".csv"
 fParams = open(writeFileParams, "w")
-writeFileCoords = basedir + "output/coords_and_velBack_"
+writeFileCoords = basedir + "output/back/coords_and_velBack_"
 writeFileCoords += str(no) + ".csv"
 fCoords = open(writeFileCoords, "w")
-writeFileColl = basedir + "output/collisionBack_"
+writeFileColl = basedir + "output/back/collisionBack_"
 writeFileColl += str(no) + ".csv"
 fColl = open(writeFileColl, "w")
 
