@@ -17,8 +17,8 @@ plt.figure(1)
 astMax = 48
 astMax += 1
 for i in range(1, astMax):
-    df = pd.read_csv("../output/back/coords_and_velBack_" + str(i) + ".csv")
-    dfParam = pd.read_csv("../output/back/parametersBack_" + str(i) + ".csv")
+    df = pd.read_csv("../output/backIAS151e7/coords_and_velBack_" + str(i) + ".csv")
+    dfParam = pd.read_csv("../output/backIAS151e7/parametersBack_" + str(i) + ".csv")
     t = df['t']
     Omega = dfParam['Omega']
     plt.plot(t[0:Noutputs], Omega[70000:70000 + Noutputs] * 180/np.pi)
@@ -36,8 +36,8 @@ plt.title("Nodal longitude against time")
 plt.savefig("../plots/Angles/Nodal_longitude_plot.svg")
 plt.figure(2)
 for i in range(1, astMax):
-    df = pd.read_csv("../output/back/coords_and_velBack_" + str(i) + ".csv")
-    dfParam = pd.read_csv("../output/back/parametersBack_" + str(i) + ".csv")
+    df = pd.read_csv("../output/backIAS151e7/coords_and_velBack_" + str(i) + ".csv")
+    dfParam = pd.read_csv("../output/backIAS151e7/parametersBack_" + str(i) + ".csv")
     t = df['t']
     omega = dfParam['omega']
     plt.plot(t[0:Noutputs], omega[70000:70000 + Noutputs] * 180/np.pi)
