@@ -38,7 +38,7 @@ for no in range(1, 49):
         plt.plot(x[startIndex:endIndex], y[startIndex:endIndex], label=asteroidLabelTeX)
         plt.xlabel("x (AU)")
         plt.ylabel("y (AU)")
-        plt.title("Trajectory of Venus, Earth, Mars and " + asteroidLabelTeX)
+        plt.title("Trajectory of Venus, Earth, Mars, Jupiter and " + asteroidLabelTeX)
         plt.legend()
         svgtitle1 = "../plots/N1e8Noutputs1e4/" + asteroidLabel + "_back_wo_Jupiter_et_al.svg"
         pngtitle1 = "../plots/N1e8Noutputs1e4/" + asteroidLabel + "_back_wo_Jupiter_et_al.png"
