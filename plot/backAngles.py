@@ -28,8 +28,9 @@ plt.ylabel("Nodal longitude (degrees)")
 plt.title("Nodal longitude against time")
 svgtitle1 = "../plots/Angles/Nodal_longitude_plot.svg"
 pngtitle1 = "../plots/Angles/Nodal_longitude_plot.png"
-plt.savefig()
+plt.savefig(svgtitle1)
 os.system("convert {} {}".format(svgtitle1, pngtitle1))
+plt.close(fig=1)
 plt.figure(2)
 for i in range(1, astMax):
     df = pd.read_csv("../output/backIAS151e7/coords_and_velBack_" + str(i) + ".csv")
@@ -44,3 +45,4 @@ svgtitle2 = "../plots/Angles/Perihelion_longitude_plot.svg"
 pngtitle2 = "../plots/Angles/Perihelion_longitude_plot.png"
 plt.savefig(svgtitle2)
 os.system("convert {} {}".format(svgtitle2, pngtitle2))
+plt.close(fig=2)
