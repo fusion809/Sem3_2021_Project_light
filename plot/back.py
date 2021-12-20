@@ -34,6 +34,7 @@ for no in range(1, 49):
         plt.plot(x[0:Noutputs], y[0:Noutputs], label="Venus")
         plt.plot(x[Noutputs:2*Noutputs], y[Noutputs:2*Noutputs], label="Earth")
         plt.plot(x[2*Noutputs:3*Noutputs], y[2*Noutputs:3*Noutputs], label="Mars")
+        plt.plot(x[3*Noutputs:4*Noutputs], y[3*Noutputs:4*Noutputs], label="Jupiter")
         plt.plot(x[startIndex:endIndex], y[startIndex:endIndex], label=asteroidLabelTeX)
         plt.xlabel("x (AU)")
         plt.ylabel("y (AU)")
