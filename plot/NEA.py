@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 plt.style.use('tableau-colorblind10')
 import pandas as pd
 import numpy as np
+import os
 
 # Number of outputs
 Noutputs = 10000
@@ -75,7 +76,10 @@ plt.ylabel("Eccentricity", fontsize=20)
 plt.yticks(fontsize=16)
 plt.title("Eccentricity vs semi-major axis plot", fontsize=24)
 plt.legend(loc="best", fontsize=17)
-plt.savefig("../plots/Eccentricity_vs_semimajor_axis/SMA_colour_grade_all_clones.svg")
+svgtitle1 = "../plots/Eccentricity_vs_semimajor_axis/SMA_colour_grade_all_clones.svg"
+pngtitle1 = "../plots/Eccentricity_vs_semimajor_axis/SMA_colour_grade_all_clones.png"
+plt.savefig(svgtitle1)
+os.system("convert {} {}".format(svgtitle1, pngtitle1))
 plt.close()
 
 # Second figure with eccentricity difference used for colour gradient
@@ -94,5 +98,8 @@ plt.ylabel("Eccentricity", fontsize=20)
 plt.yticks(fontsize=16)
 plt.title("Eccentricity vs semi-major axis plot", fontsize=24)
 plt.legend(loc="best", fontsize=17)
-plt.savefig("../plots/Eccentricity_vs_semimajor_axis/E_colour_grade_all_clones.svg")
+svgtitle2 = "../plots/Eccentricity_vs_semimajor_axis/E_colour_grade_all_clones.svg"
+pngtitle2 = "../plots/Eccentricity_vs_semimajor_axis/E_colour_grade_all_clones.png"
+plt.savefig(svgtitle2)
+os.system("convert {} {}".format(svgtitle2, pngtitle2))
 plt.close()
