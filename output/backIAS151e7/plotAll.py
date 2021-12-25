@@ -28,12 +28,12 @@ for astNo in range(1, 49):
         plt.plot(xMars, yMars, label="Mars")
         plt.plot(xAst, yAst, label="Asteroid " + str(astNo) + " clone " + str(cloneNo))
         plt.legend(fontsize=18)
-        title="Asteroid " + str(astNo) + " clone " + str(cloneNo) + " back simulation 10 My using IAS15"
+        title="Asteroid " + str(astNo) + " clone " + str(cloneNo) + " back simulation 20 My using IAS15"
         plt.title(title, fontsize=20)
         plt.xlabel("x (AU)", fontsize=20)
         plt.ylabel("y (AU)", fontsize=20)
-        svgfile = "../../plots/backIAS151e7/VEMA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
-        pngfile = "../../plots/backIAS151e7/VEMA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
+        svgfile = "../../plots/backIAS152e7/VEMA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
+        pngfile = "../../plots/backIAS152e7/VEMA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
         plt.savefig(svgfile)
         os.system("convert {} {}".format(svgfile, pngfile))
         plt.close()
@@ -46,8 +46,8 @@ for astNo in range(1, 49):
         plt.title(title, fontsize=20)
         plt.xlabel("x (AU)", fontsize=20)
         plt.ylabel("y (AU)", fontsize=20)
-        svgfile = "../../plots/backIAS151e7/VEA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
-        pngfile = "../../plots/backIAS151e7/VEA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
+        svgfile = "../../plots/backIAS152e7/VEA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
+        pngfile = "../../plots/backIAS152e7/VEA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
         plt.savefig(svgfile)
         os.system("convert {} {}".format(svgfile, pngfile))
         plt.close()
@@ -59,8 +59,8 @@ for astNo in range(1, 49):
         plt.title(title, fontsize=20)
         plt.xlabel("x (AU)", fontsize=20)
         plt.ylabel("y (AU)", fontsize=20)
-        svgfile = "../../plots/backIAS151e7/VA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
-        pngfile = "../../plots/backIAS151e7/VA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
+        svgfile = "../../plots/backIAS152e7/VA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
+        pngfile = "../../plots/backIAS152e7/VA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
         plt.savefig(svgfile)
         os.system("convert {} {}".format(svgfile, pngfile))
         plt.close()
@@ -75,8 +75,8 @@ for astNo in range(1, 49):
         plt.title(title, fontsize=20)
         plt.xlabel("x (AU)", fontsize=20)
         plt.ylabel("y (AU)", fontsize=20)
-        svgfile = "../../plots/backIAS151e7/VEMJA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
-        pngfile = "../../plots/backIAS151e7/VEMJA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
+        svgfile = "../../plots/backIAS152e7/VEMJA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
+        pngfile = "../../plots/backIAS152e7/VEMJA_asteroid_" + str(astNo) + "_clone_" + str(cloneNo) + ".png"
         plt.savefig(svgfile)
         os.system("convert {} {}".format(svgfile, pngfile))
         plt.close()
