@@ -12,12 +12,12 @@ H = dat["Hmag"]
 a = dat["SMA"]
 aC = a[0]
 alin = np.linspace(np.min(a), np.max(a), 10001)
-Cvec = np.array([2.5, 3.5]) * 1e-5
+Cvec = np.array([1.4, 2.5, 3.5]) * 1e-5
 rho = 1.5
 pV = 0.06
 tage = 1e9 * (Cvec*1e4) * (aC/2.5)**2 * (rho/2.5) * np.sqrt(0.2/pV)
 print("tage = {}".format(tage))
-for C in [2.5e-5, 3.5e-5]:
+for C in Cvec:
     Hpred = 5*np.log10(np.abs(alin-aC)/C)
 
     # Plot it

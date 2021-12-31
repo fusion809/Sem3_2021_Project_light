@@ -17,3 +17,5 @@ SveaModel.*
 *.so
 *.txt
 rebound
+*.fls
+*.fdb_latexmk
