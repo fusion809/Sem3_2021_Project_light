@@ -1,0 +1,43 @@
+\documentclass[12pt,a4paper,openright]{article}
+\setcounter{secnumdepth}{0}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{sansmath}
+\usepackage{pst-eucl}
+\usepackage[UKenglish]{isodate}
+\usepackage[UKenglish]{babel}
+\usepackage{float}
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{sectsty}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+\renewcommand{\baselinestretch}{2.0}
+\usepackage[margin=0.1in]{geometry}
+\title{Short report on scholarship programme}
+\author{Brenton Horne}
+
+\begin{document}
+\maketitle
+
+\section{What I did}
+For the Health, Engineering and Sciences undergraduate research scholarship programme (HES-URSP), I, under the supervision of Dr Timothy Holt, studied the Svea family of asteroids. My goals were to determine the future trajectory and the origins of the family, and also a little about the family's present state. 
+
+This family consists of 48 members, with each member being primarily located within the inner asteroid belt, which is between the orbits of Mars and Jupiter. The eponymous member of the family is 329 Svea, an asteroid that is approximately 80 kilometres in diameter, roughly nine times larger than Mount Everest. The only other named member of the family is 13977 Frisch, which is roughly 9 kilometres in diameter, still larger than Mount Everest (which is 8,848.6 metres tall). I also learnt that the family seems to be mostly carbonaceous, that is, primarily composed of carbon-based materials like graphite. Asteroid families like the Svea family are believed to originate from the breakup of larger asteroids due to a collision. 
+
+I discovered that the family likely originated 269-376 million years ago and that the members of the family are on diverse trajectories. Some were on trajectories that kept them entirely within the inner asteroid belt; others were on trajectories that could lead to them entering the Kirkwood gap caused by 3:1 resonance with Jupiter and being ejected from the Solar system; others occasionally crossed into the orbit of Mars, but otherwise stayed within the inner asteroid belt; others crossed into the orbits of Mars and Earth but otherwise stayed within the inner asteroid belt; and others still crossed into the entire inner Solar system, crossing even into Venus and Mercury's orbits. 
+
+\section{What skills I developed}
+During this project I learnt about the Yarkovsky effect, the effect by which thermal radiation being emitted by an asteroid can alter its trajectory. I learnt about Keplerian orbital elements. I learnt about asteroid families and the various populations of small bodies in the Solar system. I also learnt two techniques for determining the age of a family, one used numerical back-simulation and the point of convergence of the angles of longitude of ascending node ($\Omega$) and argument of periapsis ($\omega$) to determine age, if age was less than 100 million years, and the other used the amount of drift due to the Yarkovsky effect to determine age, which was especially useful if the family was older than 100 million years. 
+
+I also learnt how to write PBS scripts to parallelize jobs on USQ's High Performance Computing (HPC) facilities, as predicting the future (100 million year) trajectory of the family required this. I also learnt how to predict the motion of asteroids using the REBOUND Python library. I also learnt how to produce publication-quality plots using Python's Matplotlib library; how to connect to USQ's student VPN, which was required in order to access the HPC; how to connect to the HPC using SSH; how to transfer files between the HPC and my local machine using SSH; how to write a report in Overleaf, which is where I wrote a journal article detailing everything I did; how to add collaborators to a private repository on GitHub, which I did so my supervisor could view the code I was working on; the value of leaving what I am working on for a while and coming back to it later, when I know there's an issue with my work that I just cannot identify; and that modelling asteroids in the Solar system in the real-world usually involves disregarding relativistic effects.
+
+I also learnt a little about the difference in time between Queensland and the US state of Colorado, where my supervisor lives, and hence a little about the challenges that can exist when working with an international team of collaborators.
+
+I also learnt that I seem to have a knack for technical computing, as I was able to finish much of the coding a lot earlier than my supervisor anticipated. In fact, my supervisor offered to write me a recommendation for future jobs involving technical computing for astronomy projects. So this is something else I got out of this project, a connection to someone that could help me get a job in the future. My supervisor also offered to get me in touch with someone that could come up with an honours project for me that involves general relativity. 
+
+
+\end{document}
