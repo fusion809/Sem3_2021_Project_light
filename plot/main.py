@@ -36,9 +36,9 @@ for no in range(1, 49):
         plt.plot(x[2*Noutputs:3*Noutputs], y[2*Noutputs:3*Noutputs], label="Mars")
         plt.plot(x[3*Noutputs:4*Noutputs], y[3*Noutputs:4*Noutputs], label="Jupiter")
         plt.plot(x[startIndex:endIndex], y[startIndex:endIndex], label=asteroidLabelTeX)
-        plt.xlabel("x (AU)", fontsize=18)
+        plt.xlabel(r"$x$ (AU)", fontsize=18)
         plt.xticks(fontsize=16)
-        plt.ylabel("y (AU)", fontsize=18)
+        plt.ylabel(r"$y$ (AU)", fontsize=18)
         plt.yticks(fontsize=16)
         plt.title("Trajectory of Venus, Earth, Mars, Jupiter and " + asteroidLabelTeX, fontsize=20)
         plt.legend(fontsize=18)
@@ -51,7 +51,7 @@ for no in range(1, 49):
         # Semi-major axis vs time plot
         plt.figure(2, figsize=(8, 6))
         plt.plot(times[startIndex:endIndex], a[startIndex:endIndex], label=asteroidLabelTeX)
-        plt.xlabel("t (years)", fontsize=18)
+        plt.xlabel(r"$t$ (years)", fontsize=18)
         plt.xticks(fontsize=16)
         plt.ylabel("Semimajor axis (AU)", fontsize=18)
         plt.yticks(fontsize=16)
@@ -66,7 +66,7 @@ for no in range(1, 49):
         # Eccentricity vs time plot
         plt.figure(3)
         plt.plot(times[startIndex:endIndex], e[startIndex:endIndex], label=asteroidLabelTeX)
-        plt.xlabel("t (years)", fontsize=18)
+        plt.xlabel(r"$t$ (years)", fontsize=18)
         plt.xticks(fontsize=16)
         plt.ylabel("Eccentricity", fontsize=18)
         plt.yticks(fontsize=16)
@@ -81,7 +81,7 @@ for no in range(1, 49):
         # Inclination vs time plot
         plt.figure(4)
         plt.plot(times[startIndex:endIndex], inc[startIndex:endIndex], label=asteroidLabelTeX)
-        plt.xlabel("t (years)", fontsize=18)
+        plt.xlabel(r"$t$ (years)", fontsize=18)
         plt.xticks(fontsize=16)
         plt.ylabel("Inclination", fontsize=18)
         plt.yticks(fontsize=16)
