@@ -79,6 +79,8 @@ r = xv**2 + yv**2
 plt.contourf(xv, yv, r, levels=[inner**2,outer**2], alpha=0.3, colors=('grey','g','b'))
 plt.plot(x_inner, y_inner, color='grey', linewidth=1)
 plt.plot(x_outer, y_outer, color='grey', linewidth=1)
+plt.xlabel("x (AU)")
+plt.ylabel("y (AU)")
 plt.legend(fontsize=8)
 plt.title("Relative location of the asteroid belt (grey) and Svea family", fontsize=12)
 plt.show()
