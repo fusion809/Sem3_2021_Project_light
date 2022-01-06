@@ -1,9 +1,10 @@
+#!/usr/bin/env python
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 Noutputs = 10000
 
-plt.figure(1, figsize=(10, 8))
+plt.figure(1, figsize=(12, 9))
 dfParam = pd.read_csv("../output/forwardIAS152e7/parameters_1.csv")
 df1 = pd.read_csv("../output/forwardIAS152e7/coords_and_vel_1.csv")
 x1 = df1["x"]
@@ -87,12 +88,13 @@ plt.plot(x_inner, y_inner, color='grey', linewidth=1)
 plt.plot(x_outer, y_outer, color='grey', linewidth=1)
 
 # Add annotations to the plot
-plt.xticks(fontsize=20)
-plt.yticks(fontsize=20)
-plt.xlim([-5.2, 6.3])
-plt.ylim([-5.2, 5.5])
-plt.xlabel(r"$x$ (AU)", fontsize=22)
-plt.ylabel(r"$y$ (AU)", fontsize=22)
-plt.legend(fontsize=12, loc="upper right")
-plt.title("Relative location of the asteroid belt (grey) and Svea\n family within the Solar system", fontsize=24)
+plt.xticks(fontsize=22)
+plt.yticks(fontsize=22)
+plt.xlim([-5.2, 5.2])
+plt.ylim([-5.2, 5.2])
+plt.xlabel(r"$x$ (AU)", fontsize=24)
+plt.ylabel(r"$y$ (AU)", fontsize=24)
+plt.tight_layout(rect=[0, 0, 0.81, 0.9])
+plt.legend(bbox_to_anchor=(1.295, 1), ncol=1, fontsize=20, loc="upper right")
+plt.title("Relative location of the asteroid belt (grey) and Svea\n family within the Solar system", fontsize=26)
 plt.savefig("../../Asteroid_belt.png")
