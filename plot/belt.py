@@ -41,30 +41,30 @@ xJup = aJup * xBase
 yJup = bJup * yBase
 
 # Size of objects in plot
-planetSize = 30
-sunSize = 60
-astSize = 30
+planetSize = 80
+sunSize = 2*planetSize
+astSize = planetSize
 
 # Sun
 plt.scatter(0, 0, color="black", s=[sunSize], label="Sun")
 
 # Venus - Jupiter orbits
-plt.scatter(x1[0], y1[0], label="Venus", color="blue", s=[planetSize])
-plt.scatter(x1[Noutputs], y1[Noutputs], label="Earth", color="green", s=[planetSize])
-plt.scatter(x1[2*Noutputs], y1[2*Noutputs], label="Mars", color="red", s=[planetSize])
-plt.scatter(x1[3*Noutputs], y1[3*Noutputs], label="Jupiter", color="orange", s=[planetSize])
-plt.plot(xEarth, yEarth, color="green")
-plt.plot(xVenus, yVenus, color="blue")
-plt.plot(xMars, yMars, color="red")
-plt.plot(xJup, yJup, color="orange")
+plt.scatter(x1[0], y1[0], label="Venus", color="#006ba4", s=[planetSize])
+plt.plot(xVenus, yVenus, color="#006ba4")
+plt.scatter(x1[Noutputs], y1[Noutputs], label="Earth", color="#ff800e", s=[planetSize])
+plt.plot(xEarth, yEarth, color="#ff800e")
+plt.scatter(x1[2*Noutputs], y1[2*Noutputs], label="Mars", color="#5f9ed1", s=[planetSize])
+plt.plot(xMars, yMars, color="#5f9ed1")
+plt.scatter(x1[3*Noutputs], y1[3*Noutputs], label="Jupiter", color="#ffbc79", s=[planetSize])
+plt.plot(xJup, yJup, color="#ffbc79")
 
 # Add Svea family
-plt.scatter(x1[7*Noutputs], y1[7*Noutputs], color="#c967ff", s=[astSize], label="Svea family")
+plt.scatter(x1[7*Noutputs], y1[7*Noutputs], color="#c85200", s=[astSize], label="Svea family")
 for i in range(1, 49):
     df = pd.read_csv("../output/forwardIAS152e7/coords_and_vel_" + str(i) + ".csv")
     x = df["x"]
     y = df["y"]
-    plt.scatter(x[7*Noutputs], y[7*Noutputs], color="#c967ff", s=[astSize])
+    plt.scatter(x[7*Noutputs], y[7*Noutputs], color="#c85200", s=[astSize])
 
 # Asteroid belt
 ## Inner belt's boundaries
@@ -96,5 +96,5 @@ plt.xlabel(r"$x$ (AU)", fontsize=24)
 plt.ylabel(r"$y$ (AU)", fontsize=24)
 plt.tight_layout(rect=[0, 0, 0.81, 0.9])
 plt.legend(bbox_to_anchor=(1.295, 1), ncol=1, fontsize=20, loc="upper right")
-plt.title("Relative location of the asteroid belt (grey) and Svea\n family within the Solar system", fontsize=26)
+plt.title("Relative location of the asteroid belt (grey region) and \nSvea family within the Solar system", fontsize=26)
 plt.savefig("../../Asteroid_belt.png")

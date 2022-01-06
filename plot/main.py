@@ -31,20 +31,21 @@ for no in range(1, 49):
         # First figure is a plot of the ith clone of the asteroid and 
         # Venus, Earth and Mars
         plt.figure(1, figsize=(8,6))
-        plt.plot(x[0:Noutputs], y[0:Noutputs], label="Venus", alpha=0.6)
+        plt.plot(x[0:Noutputs], y[0:Noutputs], label="Venus")
         plt.plot(x[Noutputs:2*Noutputs], y[Noutputs:2*Noutputs], label="Earth")
         plt.plot(x[2*Noutputs:3*Noutputs], y[2*Noutputs:3*Noutputs], label="Mars", alpha=0.6)
         plt.plot(x[3*Noutputs:4*Noutputs], y[3*Noutputs:4*Noutputs], label="Jupiter")
-        plt.plot(x[startIndex:endIndex], y[startIndex:endIndex], label=asteroidLabelTeX)
+        plt.plot(x[startIndex:endIndex], y[startIndex:endIndex], label=asteroidLabelTeX, color="#c85200")
+        plt.scatter(0, 0, label="Sun", color="black")
         plt.xlabel(r"$x$ (AU)", fontsize=18)
         plt.xticks(fontsize=16)
-        # plt.xlim([-5.8, 10])
-        # plt.ylim([-5.8, 8])
+        plt.xlim([-5.6, 5.6])
+        plt.ylim([-5.6, 5.6])
         plt.tight_layout(rect=[0.035, 0, 0.654, 0.9])
         plt.ylabel(r"$y$ (AU)", fontsize=18)
         plt.yticks(fontsize=16)
         plt.title("Trajectory of Venus, Earth, Mars, Jupiter\n and " + asteroidLabelTeX, fontsize=20)
-        plt.legend(bbox_to_anchor=(1.7, 1.05), ncol=1, loc="upper right", fontsize=18)
+        plt.legend(bbox_to_anchor=(1.69, 1.05), ncol=1, loc="upper right", fontsize=18)
         svgtitle1 = "../plots/N1e8Noutputs1e4/" + asteroidLabel + "_wo_Jupiter_et_al.svg"
         pngtitle1 = "../plots/N1e8Noutputs1e4/" + asteroidLabel + "_wo_Jupiter_et_al.png"
         plt.savefig(svgtitle1)
