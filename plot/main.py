@@ -7,7 +7,7 @@ import os
 Noutputs = 10000
 
 # Plot each clone relative to the terrestrial planets we've modelled
-for no in range(31, 32):
+for no in range(1, 49):
     # Read data
     file = "../output/ordinary/output/coords_and_vel_" + str(no) + ".csv"
     paramsFile = "../output/ordinary/output/parameters_" + str(no) + ".csv"
