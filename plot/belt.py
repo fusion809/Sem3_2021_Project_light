@@ -70,6 +70,8 @@ for i in range(1, 49):
     plt.scatter(x[7*Noutputs], y[7*Noutputs], color="#c85200", s=[astSize])
 
 # Asteroid belt
+# This section is based largely on this answer:
+# https://stackoverflow.com/a/53948581/1876983
 ## Inner belt's boundaries
 inner = 1.7
 x_inner = inner * xBase
@@ -86,7 +88,7 @@ xv,yv = np.meshgrid(xs,ys)
 r = xv**2 + yv**2
 plt.contourf(xv, yv, r, levels=[inner**2,outer**2], alpha=0.3, colors=('grey','g','b'))
 
-# Draw boundaries
+## Draw boundaries
 plt.plot(x_inner, y_inner, color='grey', linewidth=1)
 plt.plot(x_outer, y_outer, color='grey', linewidth=1)
 
