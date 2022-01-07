@@ -4,7 +4,10 @@ import pandas as pd
 import numpy as np
 Noutputs = 10000
 
+# Create plot figure
 plt.figure(1, figsize=(12, 9))
+
+# Load first parameter and coords file so we can get planet data
 dfParam = pd.read_csv("../output/forwardIAS152e7/parameters_1.csv")
 df1 = pd.read_csv("../output/forwardIAS152e7/coords_and_vel_1.csv")
 x1 = df1["x"]
