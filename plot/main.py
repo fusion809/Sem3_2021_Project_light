@@ -57,9 +57,9 @@ for no in range(1, 49):
         plt.plot(times[startIndex:endIndex], a[startIndex:endIndex], label=asteroidLabelTeX)
         plt.xlabel(r"$t$ (years)", fontsize=18)
         plt.xticks(fontsize=16)
-        plt.ylabel("Semimajor axis (au)", fontsize=18)
+        plt.ylabel("Semi-major axis (au)", fontsize=18)
         plt.yticks(fontsize=16)
-        plt.title("Semimajor axis vs time plot for " + asteroidLabelTeX, fontsize=20)
+        plt.title("Semi-major axis vs time plot for " + asteroidLabelTeX, fontsize=20)
         plt.legend(fontsize=18)
         svgtitle2 = "../plots/Semimajor_axis/" + asteroidLabel + "_semimajor_time.svg"
         pngtitle2 = "../plots/Semimajor_axis/" + asteroidLabel + "_semimajor_time.png"
