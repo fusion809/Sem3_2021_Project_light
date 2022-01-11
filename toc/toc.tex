@@ -23,8 +23,17 @@
 \begin{document}
 \maketitle
 
-\begin{tabular}{|m{5em}|m{5em}|m{5em}|m{5em}|}
+\begin{tabular}{|m{15em}|m{30em}|}
     \hline
-    computeTrajectory/back.py & 
+    File & Description \\\hline
+    computeTrajectory/back.py & Runs back-simulation for Solar system (Venus-Jupiter and Sun) and specified asteroid number. \\\hline
+    computeTrajectory/base.py & Runs forward simulation on just the Sun and the planets from Venus to Neptune. \\\hline
+    computeTrajectory/close.py & Runs simulation on close encounters mentioned in closeEncounters.csv between asteroids and the planets. \\\hline
+    computeTrajectory/main.py & Runs forward simulation for Solar system (Venus-Jupiter and Sun) and specified asteroid number. \\\hline
+    eqns/eqns.pdf & Equations (1) and (2) from Lowry et al. (2020), this document was used to generate a picture for the presentation. \\\hline
+    plot/back.py & Plot $y$ against $x$ (in au units) for the planets from Venus to Jupiter and the specified asteroid's first clone (the one with no positional uncertainty accounted for). Then plots semi-major axis in au units, eccentricity and inclination against time for the specified asteroid's first clone. \\\hline
+    plot/backAngles.py & Generates perihelion longitude and nodal longitude against time plots for back-simulation. \\\hline
+    plot/belt.py & Generates the asteroid belt plot in the presentation. \\\hline
+    plot/HmagvsSMA.jl & Writes Hmag vs SMA data to HmagvsSMA.csv, which will then be used by HmagvsSMA.py to generate the Hmag vs SMA plot shown in the slideshow. 
 \end{tabular}
 \end{document}

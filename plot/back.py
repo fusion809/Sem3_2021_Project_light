@@ -40,8 +40,8 @@ for no in range(1, 49):
         label="Jupiter")
         plt.plot(x[startIndex:endIndex], y[startIndex:endIndex], 
         label=asteroidLabelTeX)
-        plt.xlabel("x (AU)")
-        plt.ylabel("y (AU)")
+        plt.xlabel("x (au)")
+        plt.ylabel("y (au)")
         pltTitle = "Trajectory of Venus, Earth, Mars, Jupiter and "
         pltTitle += asteroidLabelTeX
         plt.title(pltTitle)
@@ -58,7 +58,7 @@ for no in range(1, 49):
         plt.plot(times[startIndex:endIndex], a[startIndex:endIndex], 
         label=asteroidLabelTeX)
         plt.xlabel("t (years)")
-        plt.ylabel("Semimajor axis (AU)")
+        plt.ylabel("Semimajor axis (au)")
         plt.title("Semimajor axis vs time plot for " + asteroidLabelTeX)
         plt.legend()
         SMADir = "../plots/Semimajor_axis/"
