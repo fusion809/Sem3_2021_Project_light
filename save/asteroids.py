@@ -32,7 +32,9 @@ for x in IDs:
    # URL used to get coordinates from JPL Horizons
    URL = f"https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND='"
    URL += name
-   URL += "'&OBJ_DATA='YES'&REF_PLANE='ECLIPTIC'&REF_SYSTEM='J2000'&MAKE_EPHEM='YES'&EPHEM_TYPE='VECTORS'&CENTER='500@0'&VEC_TABLE='2x'&TLIST='2459526.5'&OUT_UNITS='AU-D'"
+   URL += "'&OBJ_DATA='YES'&REF_PLANE='ECLIPTIC'&REF_SYSTEM='J2000'&MAKE_EPHEM"
+   URL += "'YES'&EPHEM_TYPE='VECTORS'&CENTER='500@0'&VEC_TABLE='2x'&TLIST="
+   URL += "'2459526.5'&OUT_UNITS='AU-D'"
    
    # Query
    response = requests.get(URL)

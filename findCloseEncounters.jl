@@ -1,7 +1,6 @@
 #!/usr/bin/env julia
 using CSV;
 using DataFrames;
-
 Noutputs = 10000
 M = 1.9885e30
 
@@ -67,7 +66,9 @@ for i=1:48
                 hillRad = a[planetIndex] * (1-e[planetIndex]) * 
                 cbrt(m[k+1]/(3*M))
                 if (dist < 5 * hillRad)
-                    println(string(t[j-1]) * "," * string(t[j+1]) * "," * string(i) * "," * string(l))
+                    line = string(t[j-1]) * "," * string(t[j+1]) * ",";
+                    line *= string(i) * "," * string(l)
+                    println(line)
                 end
             end
         end

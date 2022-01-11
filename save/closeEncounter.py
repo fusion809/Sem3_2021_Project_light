@@ -41,7 +41,8 @@ coordsMat = np.array([[0, 0, 0],
 # Find the index corresponding to the asteroid clone at the time just before 
 # entering 5 x Hill radius
 def findIndex(t0, Noutputs, asteroidNo, cloneNo):
-    t = pd.read_csv("output/ordinary/output/coords_and_vel_" + str(asteroidNo) + ".csv")["t"]
+    coordsVelBase = "output/ordinary/output/coords_and_vel_"
+    t = pd.read_csv(coordsVelBase + str(asteroidNo) + ".csv")["t"]
     t = np.asarray(t)
     indices = np.where(t == t0)[0]
     for i in indices:
@@ -50,8 +51,9 @@ def findIndex(t0, Noutputs, asteroidNo, cloneNo):
 
 # Get the ephemeres of an asteroid
 def getEphemeres(t0, Noutputs, asteroidNo, cloneNo):
+    coordsVelBase = "output/ordinary/output/coords_and_vel_"
     index = findIndex(t0, Noutputs, asteroidNo, cloneNo)
-    ephData = pd.read_csv("output/ordinary/output/coords_and_vel_" + str(asteroidNo) + ".csv")
+    ephData = pd.read_csv(coordsVelBase + str(asteroidNo) + ".csv")
     x = ephData["x"]
     y = ephData["y"]
     z = ephData["z"]
@@ -70,8 +72,8 @@ def getEphemeresOther(t0, Noutputs, asteroidNo, cloneNo, objNo):
     vx = ephData["vx"]
     vy = ephData["vy"]
     vz = ephData["vz"]
-    newIndex = objNo * Noutputs + (index - 7*Noutputs - cloneNo*Noutputs)
-    return x[newIndex], y[newIndex], z[newIndex], vx[newIndex], vy[newIndex], vz[newIndex]
+    nIndex = objNo * Noutputs + (index - 7*Noutputs - cloneNo*Noutputs)
+    return x[nIndex], y[nIndex], z[nIndex], vx[nIndex], vy[nIndex], vz[nIndex]
 
 for ast in newIDs:
    # Add the required large bodies to database
@@ -79,11 +81,13 @@ for ast in newIDs:
    sim.units = ('AU', 'yr', 'Msun')
 
    for i in range(0, 8):
-       x, y, z, vx, vy, vz = getEphemeresOther(t0[count-1], Noutputs, astNo[count-1], clonNo[count-1], i)
+       x, y, z, vx, vy, vz = getEphemeresOther(t0[count-1], Noutputs, 
+       astNo[count-1], clonNo[count-1], i)
        sim.add(m=m[i], x=x, y=y, z=z, vx=vx, vy=vy, vz=vz)
 
    # Add asteroid clone
-   xAst, yAst, zAst, vxAst, vyAst, vzAst = getEphemeres(t0[count-1], Noutputs, astNo[count-1], clonNo[count-1])
+   xAst, yAst, zAst, vxAst, vyAst, vzAst = getEphemeres(t0[count-1], Noutputs, 
+   astNo[count-1], clonNo[count-1])
    sim.add(m=0, x=xAst, y=yAst, z=zAst, vx=vxAst, vy=vyAst, vz=vzAst)
    
    # Save the solar system and increase count by 1

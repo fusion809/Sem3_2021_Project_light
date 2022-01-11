@@ -4,8 +4,10 @@ import pandas as pd
 import numpy as np
 
 # Args
-parser = argparse.ArgumentParser(description='Simulate the trajectory for the specified Svea family asteroid')
-parser.add_argument('integers', metavar='no', type=int, nargs='+', help='an integer specifying the binary file used')
+desc = 'Simulate the trajectory for the specified Svea family asteroid'
+parser = argparse.ArgumentParser(description=desc)
+parser.add_argument('integers', metavar='no', type=int, nargs='+', 
+help='an integer specifying the binary file used')
 args = parser.parse_args()
 no = args.integers[0]
 
@@ -58,7 +60,7 @@ Omega = np.zeros((Nobj,Noutputs))
 omega = np.zeros((Nobj,Noutputs))
 f = np.zeros((Nobj,Noutputs))
 
-# We use the mercurius integrator because it switches to ias15 when objects get 
+# We use the mercurius integrator because it switches to ias15 when objects get
 # close, but otherwise uses WHF
 sim.integrator = "ias15"
 sim.move_to_com()

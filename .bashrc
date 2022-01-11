@@ -39,12 +39,12 @@ function cbash {
 
 # Edit PBS script
 function vpbs {
-	vim ~/Sem3_2021_Project/Coding/execute.pbs
+	vim ~/Sem3_2021_Project_light/execute.pbs
 }
 
 # Change into sem3 project repo dir
 function cdsem3 {
-	cd ~/Sem3_2021_Project/$1
+	cd ~/Sem3_2021_Project_light/$1
 }
 
 # Update sem3 project repo
@@ -55,7 +55,7 @@ function sem3up {
 
 # Execute PBS script
 function pbsex {
-	cdsem3 Coding
+	cdsem3
 	qsub execute.pbs
 }
 
@@ -75,7 +75,8 @@ function contCompJobs {
 		comp2=$(pbsstat | grep X | grep "$1" | wc -l)
 		if [[ $comp2 > $comp1 ]]; then
 			comp1=$comp2
-			ratio=$(R -e "$comp2/$alljobs*100" | grep "\[1\]" | sed 's/\[1\]\s//g')
+			ratio=$(R -e "$comp2/$alljobs*100" | grep "\[1\]")
+			ratio=$(echo $ratio | sed 's/\[1\]\s//g')
 			echo "Job $1 is $ratio% complete"
 		elif [[ $comp2 < $comp1 ]] && [[ $comp2 == "0" ]]; then
 			echo "Job is complete!" && return
@@ -84,7 +85,7 @@ function contCompJobs {
 }
 
 function vct {
-	cdsem3 Coding
+	cdsem3
 	vim computeTrajectory.py
 }
 
