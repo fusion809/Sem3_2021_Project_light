@@ -26,14 +26,45 @@
 \begin{tabular}{|m{15em}|m{30em}|}
     \hline
     File & Description \\\hline
-    computeTrajectory/back.py & Runs back-simulation for Solar system (Venus-Jupiter and Sun) and specified asteroid number. \\\hline
-    computeTrajectory/base.py & Runs forward simulation on just the Sun and the planets from Venus to Neptune. \\\hline
-    computeTrajectory/close.py & Runs simulation on close encounters mentioned in closeEncounters.csv between asteroids and the planets. \\\hline
-    computeTrajectory/main.py & Runs forward simulation for Solar system (Venus-Jupiter and Sun) and specified asteroid number. \\\hline
+    computeTrajectory/back.py & Runs back-simulation for Solar system (Venus-Jupiter and Sun) and specified asteroid number. Saves the output from the simulation as CSV files.\\\hline
+    computeTrajectory/base.py & Runs forward simulation on just the Sun and the planets from Venus to Neptune. Saves the output from the simulation as CSV files.\\\hline
+    computeTrajectory/close.py & Runs simulation on close encounters mentioned in closeEncounters.csv between asteroids and the planets. Saves the output from the simulation as CSV files.\\\hline
+    computeTrajectory/main.py & Runs forward simulation for Solar system (Venus-Jupiter and Sun) and specified asteroid number. Saves the output from the simulation as CSV files.\\\hline
     eqns/eqns.pdf & Equations (1) and (2) from Lowry et al. (2020), this document was used to generate a picture for the presentation. \\\hline
     plot/back.py & Plot $y$ against $x$ (in au units) for the planets from Venus to Jupiter and the specified asteroid's first clone (the one with no positional uncertainty accounted for). Then plots semi-major axis in au units, eccentricity and inclination against time for the specified asteroid's first clone. \\\hline
     plot/backAngles.py & Generates perihelion longitude and nodal longitude against time plots for back-simulation. \\\hline
-    plot/belt.py & Generates the asteroid belt plot in the presentation. \\\hline
-    plot/HmagvsSMA.jl & Writes Hmag vs SMA data to HmagvsSMA.csv, which will then be used by HmagvsSMA.py to generate the Hmag vs SMA plot shown in the slideshow. 
+    plot/belt.py & Generates the asteroid belt plot in the presentation and saves to a PNG file. \\\hline
+    plot/HmagvsSMA.jl & Writes Hmag vs SMA data for each asteroid in the Svea family (specified by 416\_svea.tab) to HmagvsSMA.csv, which will then be used by HmagvsSMA.py to generate the Hmag vs SMA plot shown in the slideshow. \\\hline
+    \end{tabular}
+
+\begin{tabular}{|m{15em}|m{30em}|}
+    \hline
+    File & Description \\\hline
+    plot/HmagvsSMA.py & Plots Hmag vs SMA for each asteroid on the same plot window and saves to a SVG file, which it then converts to a PNG file using ImageMagick. \\\hline
+    plot/main.py & Plots ($y$ in au versus $x$ in au) the planets from Venus to Jupiter with every asteroid clone (one asteroid clone per plot) and saves to a SVG file and then converts the SVG to a PNG file using ImageMagick. Plots semi-major axis (au units) versus time for each asteroid clone (one asteroid clone per plot) and saves the plot as a SVG file and then converts it to PNG using ImageMagick. Plots eccentricity versus time for each asteroid clone (one asteroid clone per plot) and saves the plot as a SVG file and then converts it to PNG using ImageMagick. Plots inclination versus time for each asteroid clone (one asteroid clone per plot) and saves the plot as a SVG file and then converts it to PNG using ImageMagick.\\\hline
+    plot/NEA.py & Scatter plots final eccentricity values vs final semi-major axis (SMA) values for each asteroid's 0th clone (no positional uncertainty considered) and colour grades each point by difference in eccentricity or SMA over the trajectory. Saves the plots as SVG files and then converts it to PNG files using ImageMagick.\\\hline
+    plot/withEarth.py & Plots each asteroid clone (one asteroid clone per window) with the Earth, was used to determine which asteroids were just Mars crossers but otherwise stayed out of the inner Solar system. Saves the plots as SVG files and then converts it to PNG files using ImageMagick.\\\hline
+\end{tabular}
+
+\begin{tabular}{|m{15em}|m{30em}|}
+    \hline
+    File & Description \\\hline
+    plot/plotAll.py & Plots the planets from Venus to Mars and each asteroid clone (one clone per plot) and saves the plot as a SVG file and converts this to a PNG file using ImageMagick. Plots Venus and Earth and each asteroid clone (one clone per plot) and saves the plot as a SVG file and converts this to a PNG file using ImageMagick. Plots Venus and each asteroid clone (one clone per plot) and saves the plot as a SVG file and converts this to a PNG file using ImageMagick. Plots the planets from Venus to Jupiter and each asteroid clone (one clone per plot) and saves the plot as a SVG file and converts this to a PNG file using ImageMagick. Was originally kept in the same directories that the CSV files for the simulations was.\\\hline
+    plot/quickPlot.py & Plots 0th clone (no positional uncertainty accounted for) for specified asteroid number plus all the planets in the simulation.\\\hline
+    plot/whenEsc.py & Prints the escape time for each planet and each asteroid clone that escapes. \\\hline
+    report/report.pdf & Short report for the programme. \\\hline
+    save/asteroid.py & Saves every asteroid clone along with all the planets from Venus to Neptune and the Sun to a .bin file (one asteroid with all its clones per .bin file). \\\hline
+    save/base.py & Save planets from Venus to Neptune and the Sun to a .bin file. \\\hline
+    save/closeEncounter.py & Save planets from Venus to Neptune, the Sun and each of the asteroid clones that come within 5 Hill radii of the planets to .bin files (one .bin file per asteroid clone). \\\hline
+    toc/toc.pdf & The table of contents for the files in this tarball.\\\hline
+    .bashrc & ~/.bashrc file used on the HPC, complete with functions and aliases that make working on the HPC easier. \\\hline
+\end{tabular}
+
+\begin{tabular}{|m{15em}|m{30em}|}
+    \hline
+    File & Description \\\hline
+    execute.pbs & PBS script that executes a computeTrajectory script across multiple different cores of the HPC. \\\hline
+    findCloseEncounters.jl & Prints close encounters (distance < 5 Hill radius) between planets and asteroid clones in CSV format with time ranges in which the encounter occurs and the asteroid number and clone number. \\\hline
+    journalArticle/article.pdf & Journal article I wrote up for this project. \\\hline
 \end{tabular}
 \end{document}

@@ -36,8 +36,8 @@ for astNo in range(1, 49):
         title="Asteroid " + str(astNo) + " clone " + str(cloneNo)
         title += " forward simulation 20 My using IAS15"
         plt.title(title, fontsize=20)
-        plt.xlabel("x (AU)", fontsize=20)
-        plt.ylabel("y (AU)", fontsize=20)
+        plt.xlabel("x (au)", fontsize=20)
+        plt.ylabel("y (au)", fontsize=20)
         VEMADir = "../../plots/forwardIAS152e7/VEMA_asteroid_"
         svgfile = VEMADir + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
         pngfile = VEMADir + str(astNo) + "_clone_" + str(cloneNo) + ".png"
@@ -53,8 +53,8 @@ for astNo in range(1, 49):
         label="Asteroid " + str(astNo) + " clone " + str(cloneNo))
         plt.legend(fontsize=18)
         plt.title(title, fontsize=20)
-        plt.xlabel("x (AU)", fontsize=20)
-        plt.ylabel("y (AU)", fontsize=20)
+        plt.xlabel("x (au)", fontsize=20)
+        plt.ylabel("y (au)", fontsize=20)
         VEADir = "../../plots/forwardIAS152e7/VEA_asteroid_"
         svgfile = VEADir + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
         pngfile = VEADir + str(astNo) + "_clone_" + str(cloneNo) + ".png"
@@ -69,8 +69,8 @@ for astNo in range(1, 49):
         label="Asteroid " + str(astNo) + " clone " + str(cloneNo))
         plt.legend(fontsize=18)
         plt.title(title, fontsize=20)
-        plt.xlabel("x (AU)", fontsize=20)
-        plt.ylabel("y (AU)", fontsize=20)
+        plt.xlabel("x (au)", fontsize=20)
+        plt.ylabel("y (au)", fontsize=20)
         VADir = "../../plots/forwardIAS152e7/VA_asteroid_"
         svgfile = VADir + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
         pngfile = VADir + str(astNo) + "_clone_" + str(cloneNo) + ".png"
@@ -88,8 +88,8 @@ for astNo in range(1, 49):
         label="Asteroid " + str(astNo) + " clone " + str(cloneNo))
         plt.legend(fontsize=18)
         plt.title(title, fontsize=20)
-        plt.xlabel("x (AU)", fontsize=20)
-        plt.ylabel("y (AU)", fontsize=20)
+        plt.xlabel("x (au)", fontsize=20)
+        plt.ylabel("y (au)", fontsize=20)
         VEMJADir = "../../plots/forwardIAS152e7/VEMJA_asteroid_"
         svgfile = VEMJADir + str(astNo) + "_clone_" + str(cloneNo) + ".svg" 
         pngfile = VEMJADir + str(astNo) + "_clone_" + str(cloneNo) + ".png"
