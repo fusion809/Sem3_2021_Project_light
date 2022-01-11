@@ -2,16 +2,29 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+Noutputs = 10000
+
+# Plot Earth and asteroid clone 0 on same plot
 for astNo in range(1, 49):
     for clone in range(0, 9):
-        df = pd.read_csv("../output/ordinary/output/coords_and_vel_" + str(astNo) + ".csv")
-        t = df["t"]; x = df["x"]; y = df["y"]; z = df["z"]
-        plt.plot(x[10000:20000], y[10000:20000], label="Earth")
-        plt.plot(x[70000 + clone * 10000:80000 + clone * 10000], y[70000 + clone * 10000:80000 + clone * 10000], label="Asteroid " + str(astNo) + " clone " + str(clone))
+        coordsVelBase = "../output/ordinary/output/coords_and_vel_"
+        df = pd.read_csv(coordsVelBase + str(astNo) + ".csv")
+        t = df["t"]
+        x = df["x"]
+        y = df["y"]
+        plt.plot(x[Noutputs:2*Noutputs], y[Noutputs:2*Noutputs], 
+        label="Earth")
+        astSt = (7 + clone) * Noutputs
+        astEnd = (8 + clone) * Noutputs
+        plt.plot(x[astSt:astEnd], y[astSt:astEnd], 
+        label="Asteroid " + str(astNo) + " clone " + str(clone))
         plt.legend()
-        plt.title("Plot of asteroid " + str(astNo) + " clone " + str(clone) + " with the Earth")
-        svgtitle = "../plots/withEarth/asteroid_" + str(astNo) + "_clone_" + str(clone) + ".svg"
-        pngtitle = "../plots/withEarth/asteroid_" + str(astNo) + "_clone_" + str(clone) + ".png"
+        title = "Plot of asteroid " + str(astNo) + " clone " + str(clone)
+        title += " with the Earth"
+        plt.title(title)
+        pltBase = "../plots/withEarth/asteroid_"
+        svgtitle = pltBase + str(astNo) + "_clone_" + str(clone) + ".svg"
+        pngtitle = pltBase + str(astNo) + "_clone_" + str(clone) + ".png"
         plt.savefig(svgtitle)
         os.system("convert {} {}".format(svgtitle, pngtitle))
         plt.close()

@@ -4,8 +4,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Args
-parser = argparse.ArgumentParser(description='Plot the trajectory of celestial bodies in specified file')
-parser.add_argument('integer', metavar='no', type=int, nargs="+", help="Integers specifying the file to be used")
+title = 'Plot the trajectory of celestial bodies in specified file'
+parser = argparse.ArgumentParser(description=title)
+parser.add_argument('integer', metavar='no', type=int, nargs="+", 
+help="Integers specifying the file to be used")
 args = parser.parse_args()
 no = args.integer[0]
 
@@ -31,6 +33,8 @@ xNeptune = x[6*Noutputs:7*Noutputs]
 yNeptune = y[6*Noutputs:7*Noutputs]
 xAst = x[7*Noutputs:8*Noutputs]
 yAst = y[7*Noutputs:8*Noutputs]
+
+# Plot first asteroid clone against the planets
 plt.figure(1)
 plt.plot(xVenus, yVenus, label="Venus")
 plt.plot(xEarth, yEarth, label="Earth")
@@ -39,6 +43,7 @@ plt.plot(xJupiter, yJupiter, label="Jupiter")
 plt.plot(xSaturn, ySaturn, label="Saturn")
 plt.plot(xUranus, yUranus, label="Uranus")
 plt.plot(xNeptune, yNeptune, label="Neptune")
-plt.plot(x[7*Noutputs:8*Noutputs], y[7*Noutputs:8*Noutputs], label="Asteroid " + str(no) + " clone 0")
+plt.plot(x[7*Noutputs:8*Noutputs], y[7*Noutputs:8*Noutputs], 
+label="Asteroid " + str(no) + " clone 0")
 plt.legend()
 plt.show()
