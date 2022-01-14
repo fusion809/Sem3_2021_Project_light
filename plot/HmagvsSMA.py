@@ -23,7 +23,7 @@ for C in Cvec:
     # Plot it
     plt.figure(1, figsize=(8, 6))
     plt.scatter(a, H, label="Asteroid values")
-    plt.plot(alin, Hpred, label="Predicted values with C={}".format(C))
+    plt.plot(alin, Hpred, label="Predicted values with C={} au".format(C))
     plt.xlabel("Semi-major axis (au)", fontsize=22)
     plt.xticks(fontsize=16)
     plt.ylabel("H magnitude", fontsize=22)
